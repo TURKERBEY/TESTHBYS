@@ -1,0 +1,13 @@
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\bin\Release\net7.0\EntityLayer.deps.json
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\bin\Release\net7.0\EntityLayer.dll
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\bin\Release\net7.0\EntityLayer.pdb
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\EntityLayer.csproj.AssemblyReference.cache
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\EntityLayer.AssemblyInfoInputs.cache
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\EntityLayer.AssemblyInfo.cs
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\EntityLayer.sourcelink.json
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\EntityLayer.dll
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\refint\EntityLayer.dll
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\EntityLayer.pdb
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\EntityLayer\obj\Release\net7.0\ref\EntityLayer.dll

@@ -1,0 +1,621 @@
+﻿@using WEB.Models
+@using EntityLayer.Concrete;
+@{
+
+
+    Layout = "_Layout";
+
+    TanimlamaİslemleriModel _TanimlamaModel;
+    Kullanicilar kullanici = new();
+    _TanimlamaModel = (TanimlamaİslemleriModel)ViewData["Tanimlamaİslemleri"];
+
+    if(_TanimlamaModel.TanimlamaKullaniciGuncelleme==true)
+    {
+        kullanici = _TanimlamaModel.KullaniciListesi[0];
+    }
+
+}
+
+
+
+<link rel="stylesheet" href="~/app-assets/vendors/fonts/boxicons.css" />
+@if (_TanimlamaModel.TanimlamaKullaniciGuncelleme == false)
+{
+    <body>
+
+
+        @using (Html.BeginForm("Tanimlamaİslemleri", "Tanimlamaİslemleri", FormMethod.Post))
+        {
+            <form id="login" method="post" class="">
+
+
+                @if (ViewBag.Message is not null)
+                {
+                    <div id="alertMessage" class="alert alert-success">
+                        <a href="#" class="close" aria-label="close">&times;</a>
+                        <strong></strong> @ViewBag.Message
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                        var alertMessage = document.getElementById('alertMessage');
+                        if (alertMessage) {
+                        setTimeout(function () {
+                        alertMessage.style.display = 'none';
+                        }, 6000);
+                        }
+                        });
+                    </script>
+
+
+                }
+
+
+                <div class="card mb-4" sytle="height: 420px;">
+                    <h5 class="card-header">Kullanici Tanimlama</h5>
+                    <div class="card-body"  >
+
+
+                        <div class="mb-3 row">
+                            <label id="kullaniciidlabel" for="html5-search-input" class="col-md-2 col-form-label" style="display: block;">ID</label>
+                            <div class="col-md-10">
+                                <input id="kullaniciidinput" class="form-control" type="number" max="9000000" name="id"  style="display: block;" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-search-input" class="col-md-2 col-form-label">Adi</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" id="Ad" name="Ad"  />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-search-input" class="col-md-2 col-form-label">Soyadi</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" id="Soyad" name="Soyad"  />
+                            </div>
+                        </div>
+
+
+
+                        <div class="mb-3 row">
+                            <label for="html5-email-input" class="col-md-2 col-form-label">Kullanici Adi</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" name="KullaniciAd" id="KullaniciAd"  />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-url-input" id="sifrelabel_id" class="col-md-2 col-form-label" style="display: none;">Şifre </label>
+                            <div class="col-md-10">
+                                <input class="form-control" id="sifreinput_id" type="password" name="sifre" style="display: none;" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+
+                            <label for="html5-datetime-local-input"  id="labelPersonel" class="col-md-2 col-form-label" style="display: none;">Bagli Personel</label>
+                            <div class="col-md-10">
+
+
+                                <select name="Personel_İd" id="Personel_İd"   class="form-select" style="display: none;">
+                                    <option value="" disabled selected>Seçiniz..</option>
+                                    @foreach (var item in _TanimlamaModel.Personels)
+                                    {
+                                        <option value="@item.ID">@item.AKADEMIK_UNVAN @item.AD @item.SOYADI</option>
+                                    }
+
+
+
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="mb-3 row">
+                            <label for="html5-text-input" class="col-md-2 col-form-label" id="Email_label" style="display: none;">E-mail</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" value="" name="Email" id="Email_input" style="display: none; " />
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="mb-3 row">
+                            <label for="html5-datetime-local-input" id="YetkiGroupLabel" class="col-md-2 col-form-label " style="display: none;">Yetki Grup</label>
+                            <div class="col-md-10">
+                                <select name="Yetki_Grup_ıd" id="Yetki_Grup_ıd" class="form-select" style="display: none;">
+                                    <option value="" disabled selected>Seçiniz..</option>
+                                    @foreach (var item in _TanimlamaModel.YetkiGrupTurs)
+                                    {
+                                        <option value="@item.id">@item.Adi</option>
+                                    }
+
+
+
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-datetime-local-input" id="LabelDurum" class="col-md-2 col-form-label" style="display: none;">Durum</label>
+                            <div class="col-md-10">
+                                <select name="Aktif" id="Aktif" class="form-select" style="display: none;">
+                                    <option value="" disabled selected>Seçiniz..</option>
+
+                                    <option value="True">Aktif</option>
+                                    <option value="false">Pasif</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="mb-3 row">
+                            <div class="d-grid gap-2 col-lg-7 mx-auto">
+
+
+                                <button id="kullaniciarama" class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="Tanimlamaİslemleri" asp-action="Secilikullanicilarigetir" type="submit" style="display: block; top:-220px; left:300px;"> Kullanici Ara	</button>
+                                <button id="Guncellebtn" class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="Tanimlamaİslemleri" asp-action="KullaniciKaydetmeislemi" type="submit" style="display: none;"> Güncelle	</button>
+                                <button id="YeniKayit" class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="Tanimlamaİslemleri" asp-action="KullaniciKaydetmeislemi" type="submit" style="display: none;"> Kaydet	</button>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <!--/ Bootstrap Table with Header Dark -->
+
+
+
+
+
+                </div>
+
+
+            </form>
+                <button id="KullaniciAra" onclick="kullaniciaramaislemi()" class="btn btn-primary btn-lg waves-effect waves-float waves-light" style="display: none; "> Kullanici Ara	</button>
+                <button id="KullaniciKaydet" onclick="kullanicikayitislemi()" class="btn btn-primary btn-lg waves-effect waves-float waves-light" style="display: block;"> Yeni Kayit	</button>
+          
+    }    
+    </body>
+    
+    }
+
+@if(_TanimlamaModel.TanimlamaKullaniciGuncelleme==true)
+{
+ 
+
+    <body>
+   
+
+            @using (Html.BeginForm("Tanimlamaİslemleri", "Tanimlamaİslemleri", FormMethod.Post))
+            {
+            <form id="login" method="post" class="">
+
+
+                @if (ViewBag.Message is not null)
+                {
+                    <div id="alertMessage" class="alert alert-success">
+                        <a href="#" class="close" aria-label="close">&times;</a>
+                        <strong></strong> @ViewBag.Message
+                    </div>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var alertMessage = document.getElementById('alertMessage');
+                            if (alertMessage) {
+                                setTimeout(function () {
+                                    alertMessage.style.display = 'none';
+                                }, 6000);
+                            }
+                        });
+                    </script>
+
+
+                }
+
+
+                <div class="card mb-4"  >
+                    <h5 class="card-header" >Kullanici Tanimlama</h5>
+                    <div class="card-body">
+
+
+                        <div class="mb-3 row">
+                            <label id="kullaniciidlabel" for="html5-search-input" class="col-md-2 col-form-label" style="display: none;">ID</label>
+                            <div class="col-md-10">
+                                <input id="kullaniciidinput" class="form-control" type="number" max="9000000" value="@((kullanici.id.ToString() ?? ""))" name="id" style="display: none;" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-search-input" class="col-md-2 col-form-label">Adi</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" id="Ad" name="Ad" value="@((kullanici.Ad ?? ""))" required="required" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-search-input" class="col-md-2 col-form-label">Soyadi</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" id="Soyad" value="@((kullanici.soyad ?? ""))" name="Soyad" required="required" />
+                            </div>
+                        </div>
+
+
+
+                        <div class="mb-3 row">
+                            <label for="html5-email-input" class="col-md-2 col-form-label">Kullanici Adi</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" name="KullaniciAd" value="@((kullanici.KullaniciAd ?? ""))" id="KullaniciAd" required="required" />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-url-input" id="sifrelabel_id" class="col-md-2 col-form-label" style="display: block;" >Şifre </label>
+                            <div class="col-md-10">
+                                <input class="form-control" id="sifreinput_id" type="password" name="sifre" required="required" style="display: block;"  />
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+
+                            <label for="html5-datetime-local-input" id="labelPersonel" class="col-md-2 col-form-label" style="display: block;">Bagli Personel</label>
+                            <div class="col-md-10">
+
+
+                                <select name="Personel_İd" id="Personel_İd" class="form-select" style="display: block;">
+                                    <option value="" disabled selected>Seçiniz..</option>
+                                    @foreach (var item in _TanimlamaModel.Personels)
+                                    {
+                                        if(kullanici.Personel_İd is not null)
+                                        {
+                                            if (item.ID == kullanici.Personel_İd)
+                                            {
+                                                <option value="@item.ID" selected>@item.AKADEMIK_UNVAN @item.AD @item.SOYADI</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@item.ID">@item.AKADEMIK_UNVAN @item.AD @item.SOYADI</option>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <option value="@item.ID">@item.AKADEMIK_UNVAN @item.AD @item.SOYADI</option>
+                                        }
+
+                                        
+                                    }
+
+
+
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="mb-3 row">
+                            <label for="html5-text-input" class="col-md-2 col-form-label" id="Email_label" style="display: block;">E-mail</label>
+                            <div class="col-md-10">
+                                <input class="form-control" type="text" value="@((kullanici.Email ?? ""))" name="Email" id="Email_input" style="display: block;"  />
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="mb-3 row">
+                            <label for="html5-datetime-local-input" id="YetkiGroupLabel" class="col-md-2 col-form-label " style="display: block;" >Yetki Grup</label>
+                            <div class="col-md-10">
+                                <select name="Yetki_Grup_ıd" id="Yetki_Grup_ıd" class="form-select" style="display: block;" required="required">
+                                    <option value="" disabled selected>Seçiniz..</option>
+                                    @foreach (var item in _TanimlamaModel.YetkiGrupTurs)
+                                    {
+                                        if (kullanici.Yetki_Grup_ıd is not null)
+                                        {
+                                            if(item.id==kullanici.Yetki_Grup_ıd)
+                                            {
+                                                <option value="@item.id" selected>@item.Adi</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="@item.id">@item.Adi</option>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <option value="@item.id">@item.Adi</option>
+                                        }
+                                    
+                                    }
+
+
+
+
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 row">
+                            <label for="html5-datetime-local-input" id="LabelDurum" class="col-md-2 col-form-label" style="display: block;">Durum</label>
+                            <div class="col-md-10">
+                                <select name="Aktif" id="Aktif" class="form-select" style="display: block; " required="required">
+                                    <option value="" disabled selected>Seçiniz..</option>
+
+                                    @if(kullanici.Aktif==true)
+                                    {
+                                        <option value="True" selected>Aktif</option>
+                                        <option value="false">Pasif</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="True">Aktif</option>
+                                        <option value="false" selected>Pasif</option>
+                                    }
+                                 
+                                </select>
+                            </div>
+                        </div>
+
+
+
+                        <div class="mb-3 row">
+                            <div class="d-grid gap-2 col-lg-7 mx-auto">
+
+
+                                <button id="kullaniciarama" class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="Tanimlamaİslemleri" asp-action="Secilikullanicilarigetir" type="submit" style="display: none; top:-220px; left:300px;"> Kullanici Ara	</button>
+
+                                <button id="Guncellebtn" class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="Tanimlamaİslemleri" asp-action="KullaniciUpdate" type="submit" style="display: block;"> Güncelle	</button>
+
+                                <button id="YeniKayit" class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="Tanimlamaİslemleri" asp-action="KullaniciKaydetmeislemi" type="submit" style="display: none;"> Kaydet	</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+
+
+                    <!--/ Bootstrap Table with Header Dark -->
+
+
+
+
+
+                </div>
+
+            </form>
+            
+            <button id="KullaniciAra" onclick="kullaniciaramaislemi()" class="btn btn-primary btn-lg waves-effect waves-float waves-light" style="display: block; "> Kullanici Ara	</button>
+            <button id="KullaniciKaydet" onclick="kullanicikayitislemi()" class="btn btn-primary btn-lg waves-effect waves-float waves-light" style="display: none;"> Yeni Kayit	</button>
+    
+     
+        }
+    </body>
+    
+  
+}
+ 
+
+
+
+<partial name="_kullaniciTanimlamaListe"></partial>
+
+
+<script>
+    function kullanicikayitislemi() {
+        var kullaniciaramabtn = document.getElementById('kullaniciarama');
+        var yenikayitbtn = document.getElementById('YeniKayit');
+
+        var ıdlabel = document.getElementById('kullaniciidlabel');
+        var ıdinput = document.getElementById('kullaniciidinput');
+
+        var kullaniciara = document.getElementById('KullaniciAra');
+        var kullanicikaydetme = document.getElementById('KullaniciKaydet');
+
+
+        var Aktifsecim = document.getElementById('Aktif');
+        var sifrelabel = document.getElementById('sifrelabel_id');
+        var sifreinput = document.getElementById('sifreinput_id');
+        sifrelabel.style.display = "block";
+        sifreinput.style.display = "block";
+        var guncellebtn = document.getElementById('Guncellebtn');
+        guncellebtn.style.display = "none";
+       
+        kullanicikaydetme.style.display = "none";
+        kullaniciara.style.display = "block";
+        kullaniciaramabtn.style.display = "none";
+        yenikayitbtn.style.display = "block";
+
+        ıdlabel.style.display = "none";
+
+        ıdinput.style.display = "none";
+        ıdinput.value = "";
+    
+
+        var Aktifsecim = document.getElementById('Aktif');
+        var AktifLabel = document.getElementById('LabelDurum');
+        var Yetki_Grup = document.getElementById('Yetki_Grup_ıd');
+        var yetki_group_label = document.getElementById('YetkiGroupLabel');
+        var pass = document.getElementById('sifreinput_id');
+
+        
+        var KullaniciAdi = document.getElementById('KullaniciAd');
+        var Soyadi = document.getElementById('Soyad');
+        var Adi = document.getElementById('Ad');
+        var personel = document.getElementById('Personel_İd');
+        var personellabel = document.getElementById('labelPersonel');
+        var Emaillabel = document.getElementById('Email_label');
+        var Emailinput = document.getElementById('Email_input');
+
+        Emaillabel.style.display = "block";
+        Emailinput.style.display = "block";
+
+
+
+        personel.style.display = "block";
+        personellabel.style.display = "block";
+        Aktifsecim.style.display = "block";
+        AktifLabel.style.display = "block";
+        
+        Yetki_Grup.style.display = "block";
+        yetki_group_label.style.display = "block";
+
+        
+
+        Soyadi.setAttribute("required", "required"); Adi.setAttribute("required", "required");
+
+        KullaniciAdi.setAttribute("required", "required");
+        pass.setAttribute("required", "required");
+        Yetki_Grup.setAttribute("required", "required");
+        Aktifsecim.setAttribute("required", "required");
+
+        kullaniciaramabtn.style.top = "auto";
+        kullaniciaramabtn.style.left = "auto";
+
+
+
+
+        ıdinput.value = "";
+        Adi.value = "";
+        Soyadi.value = "";
+        Emailinput.value = "";
+        personel.value = "";
+        KullaniciAdi.value = "";
+        pass.value = "";
+
+        Aktifsecim.value = "";
+        Yetki_Grup.value = "";
+
+        console.log("geldi");
+        var card = document.querySelector('.card');
+        if (card) {
+            card.style.height = '820px';
+        }
+    }
+     
+    function kullaniciaramaislemi() {
+        var kullaniciara = document.getElementById('KullaniciAra');
+        var kullanicikaydetme = document.getElementById('KullaniciKaydet');
+  
+        var kullaniciaramabtn = document.getElementById('kullaniciarama');
+        var yenikayitbtn = document.getElementById('YeniKayit');
+
+        var ıdlabel = document.getElementById('kullaniciidlabel');
+        var ıdinput = document.getElementById('kullaniciidinput');
+
+        var sifrelabel = document.getElementById('sifrelabel_id');
+        var sifreinput = document.getElementById('sifreinput_id');
+        sifrelabel.style.display = "none";
+        sifreinput.style.display = "none";
+        var yetki_group_label = document.getElementById('YetkiGroupLabel');
+
+        kullanicikaydetme.style.display = "block";
+        kullaniciara.style.display = "none";
+
+
+        kullaniciaramabtn.style.top="-220px";
+        kullaniciaramabtn.style.left = "300px";
+       
+
+        ıdlabel.style.display = "block";
+        ıdinput.style.display = "block";
+
+        kullaniciaramabtn.style.display = "block";
+        yenikayitbtn.style.display = "none";
+
+
+
+        var Aktifsecim = document.getElementById('Aktif');
+        var AktifLabel = document.getElementById('LabelDurum');
+        var Yetki_Grup = document.getElementById('Yetki_Grup_ıd');
+
+        var pass = document.getElementById('sifreinput_id');
+
+        var KullaniciAdi = document.getElementById('KullaniciAd');
+
+        var Adi = document.getElementById('Ad');
+        var Soyadi = document.getElementById('Soyad');
+
+        var personel = document.getElementById('Personel_İd');
+        var personellabel = document.getElementById('labelPersonel');
+
+        personel.style.display = "none";
+        personellabel.style.display = "none";
+       
+        Aktifsecim.style.display = "none";
+        Yetki_Grup.style.display = "none";
+        yetki_group_label.style.display = "none";
+
+        AktifLabel.style.display = "none";
+
+        var Emaillabel = document.getElementById('Email_label');
+        var Emailinput = document.getElementById('Email_input');
+
+        Emaillabel.style.display = "none";
+        Emailinput.style.display = "none";
+        Emailinput.removeAttribute("required");
+        Soyadi.removeAttribute("required"); Adi.removeAttribute("required");
+
+        KullaniciAdi.removeAttribute("required");
+
+        pass.removeAttribute("required");
+        Yetki_Grup.removeAttribute("required");
+
+        Adi.value = "";
+        Soyadi.value = "";
+        Emailinput.value = "";
+        personel.value = "";
+        KullaniciAdi.value = "";
+       
+        Aktifsecim.removeAttribute("required");
+        var card = document.querySelector('.card');
+        if (card) {
+            card.style.height = '420px';
+        }
+
+    }
+</script>
+
+@if (_TanimlamaModel.TanimlamaKullaniciGuncelleme == true)
+            {
+                <script>
+                    Duzenle();
+                    function Duzenle() {
+
+
+                    console.log("Güncelleme için Ekran Düzenlendi");
+                    var card = document.querySelector('.card');
+                    if (card) {
+                    card.style.height = '820px';
+                    }
+                    }
+                </script>
+            }
+            else
+            {
+                <script>
+                    Duzenle();
+                    function Duzenle() {
+
+
+                    console.log("Güncelleme için Ekran Düzenlendi");
+                    var card = document.querySelector('.card');
+                    if (card) {
+                    card.style.height = '420px';
+                    }
+                    }
+                     
+                </script>
+            }

@@ -1,0 +1,105 @@
+﻿@using EntityLayer.Models
+@{
+    <title>@ViewData["Title"]HBYS</title>
+    @*ViewData["Title"] = "HBYS";*@
+    Layout = null;
+    versiyonnotlariModel versiyonnotlari;
+    versiyonnotlari = (versiyonnotlariModel)ViewData["versiyon"];
+   
+}
+  
+
+ 
+
+
+
+ @model WEB.Models.Users_Model
+<link href="~/app-assets/css/Login.css" rel="stylesheet" />
+    <title></title>
+  <head></head>
+<body>
+   <Center > 
+    <form id="login"  method="post" class="">
+
+
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        
+        <div class="outer-box">
+            <div class="login-box">
+                 <h2>HBYS</h2>
+              
+                <center>
+                    @using (Html.BeginForm("login", "LoginController", FormMethod.Post))
+                    {
+
+                        <input type="text" id="Kullanici_ADTextBox" placeholder="Kullanıcı Adı" name="Username" >
+                       
+                        <input type="password" ID="Sifre_TextBox1" runat="server" placeholder="Şifre" name="Password">
+                        <input ID="Button1_kullanici_giris" type="submit" value="GİRİŞ">
+
+
+                    }
+
+
+                    <button id="btn-forgot">Şifremi unuttum!</button>
+
+             @if (ViewBag.Message is not null)
+    {
+        <script style=""  type="text/javascript">
+        @*    window.onload = function () {
+                alert("@ViewBag.Message");
+            };*@
+
+
+              window.onload = function () {
+                alert("Kullanıcı Girişi Başarısız");
+            };
+
+
+            
+        </script>
+    }
+                    
+
+
+
+
+
+
+
+
+
+                </center>
+            </div>
+        </div>
+        <center>
+            <small>Copyright 2024 Mia Teknoloji</small>
+        </center>
+
+    </form>
+    </Center>
+        </body>
+
+<center>
+    <small>
+      
+        Versiyon:<a asp-controller="Versiyon" asp-action="Index">    @versiyonnotlari.VersiyonNotlarilistesi.Last().versiyon </a>
+        
+   
+    </small>
+</center>

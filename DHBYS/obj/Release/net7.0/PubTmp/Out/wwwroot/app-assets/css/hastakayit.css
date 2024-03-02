@@ -1,0 +1,61 @@
+﻿label
+{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    color: blue;
+    font-weight: bold;
+    text-align: center;
+    font-size: 200%;
+    letter-spacing: 1px;
+
+}
+
+a2
+{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    color: red;
+    font-weight: 400;
+    text-align: center;
+    font-size: 200%;
+    letter-spacing: 1px;
+}
+
+div .card-body 
+{
+    position: relative;
+}
+
+ 
+button1{
+    background-color: #aqua; /* Green */
+    border:solid;
+    color: black;
+    padding: 10px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight:bold;
+    margin-left:300px;
+ }
+
+
+div .Arama {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+div .testa
+{
+    color:red;
+
+}

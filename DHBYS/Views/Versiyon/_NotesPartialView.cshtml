@@ -1,0 +1,20 @@
+﻿@model List<string>
+
+@if (Model != null && Model.Count > 0)
+{
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Notlar</h5>
+            <ul class="list-group">
+                @foreach (var note in Model)
+                {
+                    <li class="list-group-item">@note</li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+else
+{
+    <p>Not bulunamadı.</p>
+}

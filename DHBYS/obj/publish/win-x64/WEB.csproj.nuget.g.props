@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\samet.turker\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages;C:\Program Files (x86)\Microsoft\Xamarin\NuGet\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.8.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\samet.turker\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft\Xamarin\NuGet\" />
+  </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore\7.0.0\buildTransitive\net6.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore\7.0.0\buildTransitive\net6.0\Microsoft.EntityFrameworkCore.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design\7.0.0\build\net6.0\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design\7.0.0\build\net6.0\Microsoft.EntityFrameworkCore.Design.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.win-x64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.win-x64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.win-x64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.win-x64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.win-arm64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.win-arm64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.win-arm64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.win-arm64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.osx-x64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.osx-x64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.osx-x64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.osx-x64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.osx-arm64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.osx-arm64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.osx-arm64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.osx-arm64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.linux-x64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.linux-x64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.linux-x64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.linux-x64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.linux-arm64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.linux-arm64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.linux-arm64\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.linux-arm64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.linux-arm\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.linux-arm.props" Condition="Exists('$(NuGetPackageRoot)ikvm.msbuild.tools.runtime.linux-arm\8.7.5\buildTransitive\IKVM.MSBuild.Tools.runtime.linux-arm.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.msbuild\8.7.5\buildTransitive\IKVM.MSBuild.props" Condition="Exists('$(NuGetPackageRoot)ikvm.msbuild\8.7.5\buildTransitive\IKVM.MSBuild.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.win-x86\8.7.5\buildTransitive\IKVM.Image.runtime.win-x86.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.win-x86\8.7.5\buildTransitive\IKVM.Image.runtime.win-x86.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.win-x64\8.7.5\buildTransitive\IKVM.Image.runtime.win-x64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.win-x64\8.7.5\buildTransitive\IKVM.Image.runtime.win-x64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.win-arm64\8.7.5\buildTransitive\IKVM.Image.runtime.win-arm64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.win-arm64\8.7.5\buildTransitive\IKVM.Image.runtime.win-arm64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.osx-x64\8.7.5\buildTransitive\IKVM.Image.runtime.osx-x64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.osx-x64\8.7.5\buildTransitive\IKVM.Image.runtime.osx-x64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.osx-arm64\8.7.5\buildTransitive\IKVM.Image.runtime.osx-arm64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.osx-arm64\8.7.5\buildTransitive\IKVM.Image.runtime.osx-arm64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.linux-x64\8.7.5\buildTransitive\IKVM.Image.runtime.linux-x64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.linux-x64\8.7.5\buildTransitive\IKVM.Image.runtime.linux-x64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.linux-musl-x64\8.7.5\buildTransitive\IKVM.Image.runtime.linux-musl-x64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.linux-musl-x64\8.7.5\buildTransitive\IKVM.Image.runtime.linux-musl-x64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.linux-musl-arm64\8.7.5\buildTransitive\IKVM.Image.runtime.linux-musl-arm64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.linux-musl-arm64\8.7.5\buildTransitive\IKVM.Image.runtime.linux-musl-arm64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.linux-musl-arm\8.7.5\buildTransitive\IKVM.Image.runtime.linux-musl-arm.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.linux-musl-arm\8.7.5\buildTransitive\IKVM.Image.runtime.linux-musl-arm.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.linux-arm64\8.7.5\buildTransitive\IKVM.Image.runtime.linux-arm64.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.linux-arm64\8.7.5\buildTransitive\IKVM.Image.runtime.linux-arm64.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image.runtime.linux-arm\8.7.5\buildTransitive\IKVM.Image.runtime.linux-arm.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image.runtime.linux-arm\8.7.5\buildTransitive\IKVM.Image.runtime.linux-arm.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm.image\8.7.5\buildTransitive\IKVM.Image.props" Condition="Exists('$(NuGetPackageRoot)ikvm.image\8.7.5\buildTransitive\IKVM.Image.props')" />
+    <Import Project="$(NuGetPackageRoot)ikvm\8.7.5\buildTransitive\IKVM.props" Condition="Exists('$(NuGetPackageRoot)ikvm\8.7.5\buildTransitive\IKVM.props')" />
+    <Import Project="$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props" Condition="Exists('$(NuGetPackageRoot)entityframework\6.4.4\buildTransitive\netcoreapp3.0\EntityFramework.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMessagePackAnalyzer Condition=" '$(PkgMessagePackAnalyzer)' == '' ">C:\Users\samet.turker\.nuget\packages\messagepackanalyzer\2.1.152</PkgMessagePackAnalyzer>
+    <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\samet.turker\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.2</PkgMicrosoft_CodeAnalysis_Analyzers>
+    <PkgMicrosoft_CodeAnalysis_AnalyzerUtilities Condition=" '$(PkgMicrosoft_CodeAnalysis_AnalyzerUtilities)' == '' ">C:\Users\samet.turker\.nuget\packages\microsoft.codeanalysis.analyzerutilities\3.3.0</PkgMicrosoft_CodeAnalysis_AnalyzerUtilities>
+    <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\samet.turker\.nuget\packages\microsoft.entityframeworkcore.tools\7.0.0</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\samet.turker\.nuget\packages\entityframework\6.4.4</PkgEntityFramework>
+  </PropertyGroup>
+</Project>

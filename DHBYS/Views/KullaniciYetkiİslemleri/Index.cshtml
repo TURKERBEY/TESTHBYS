@@ -1,0 +1,437 @@
+﻿
+@using WEB.Models
+@{
+  <title>@ViewData["Title"]HBYS</title>
+
+    Layout = "_Layout";
+
+    YetkiKullaniciModel _modulHeaderVMData;
+    YetkiKullaniciModel Yetkiislemleri = new();
+    _modulHeaderVMData = (YetkiKullaniciModel)ViewData["YetkiEkrani"];
+ 
+     
+ 
+}
+
+ 
+
+
+ 
+@* <div class="col-xl-6">
+    <h6 class="text-muted">Basic</h6>
+    <div class="nav-align-top mb-4">
+        <ul class="nav nav-tabs" role="tablist">
+
+
+
+            @foreach (var item in _modulHeaderVMData.Anamoduls)
+            {
+                <li class="nav-item">
+                    <button type="button" class="nav-link" role="tab" data-bs-toggle="tab" data-bs-target="#navs-top-@item.id" aria-controls="navs-top-home" aria-selected="true">
+                        @item.Adi
+                    </button>
+                </li>
+            }
+            
+         
+        
+        </ul>
+
+        <div class="tab-content">
+            @foreach (var item in _modulHeaderVMData.Anamoduls)
+            {
+
+                <div class="tab-pane fade" id="navs-top-@item.id" role="tabpanel">
+                    <p>
+                       @item.Adi
+                    </p>
+
+                </div>
+            }
+            
+        
+
+
+             
+             
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+ *@
+
+
+@using (Html.BeginForm("Yetkiislemi", "KullaniciYetkiİslemleri", FormMethod.Post))
+	{
+    
+        <div class="card">
+        @if (ViewBag.Message is not null)
+    {
+        <div id="alertMessage" class="alert alert-success">
+            <a href="#" class="close" aria-label="close">&times;</a>
+            <strong></strong> @ViewBag.Message
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var alertMessage = document.getElementById('alertMessage');
+                if (alertMessage) {
+                    setTimeout(function () {
+                        alertMessage.style.display = 'none';
+                    }, 6000);
+                }
+            });
+        </script>
+
+
+    }
+
+ 
+<div class="col-lg-6 mb-4 mb-xl-0">
+    <small class="text-light fw-semibold"></small>
+    <div class="mt-3">
+        <div class="row">
+            <div class="col-md-4 col-12 mb-3 mb-md-0">
+                <div class="list-group">
+                
+                    @foreach(var kullanici in _modulHeaderVMData.kullanicilars)
+                    {
+                            <a class="list-group-item list-group-item-action"   name="@kullanici.id" id="list-home-list-@kullanici.id" data-bs-toggle="list" href="#list-@kullanici.id">@kullanici.Ad @kullanici.soyad</a>
+                    }
+                
+                </div>
+            </div>
+         
+            <div class="card" style="
+ 
+    left: 300px;
+    top: -150px;
+    ">
+            <div class="col-md-8 col-12">
+                <div class="tab-content p-0">
+                   
+                    
+                       @foreach(var kullanici in _modulHeaderVMData.kullanicilars)
+                    {
+                    <div class="tab-pane fade" id="list-@kullanici.id">
+                           
+                        <div class="col-lg-6">
+                                <small class="text-light fw-semibold"></small>
+                                <div class="demo-inline-spacing mt-3">
+                                    <div class="list-group">
+
+
+                                        @foreach(var modullistesi in _modulHeaderVMData.moduls)
+                                          {
+                                              @if(_modulHeaderVMData.Kullanici_Yetki.FindAll(x=> x.Modul_ID==modullistesi.id).Find(Y=> Y.Kullanici_ID==kullanici.id) is not null )
+                                            {
+                                                <label class="list-group-item">
+                                                            <input class="form-check-input me-1" type="checkbox" checked="checked" name="@kullanici.id" value="@modullistesi.id" onclick="handleClick(this)">
+                                                    <bold class=""> @modullistesi.Adi.ToUpper()</bold>
+                                                    <label>
+                                                        @if (@_modulHeaderVMData.Kullanici_Yetki.FindAll(x => x.Modul_ID == modullistesi.id).Find(Y => Y.Kullanici_ID == kullanici.id).SayfadaIslemYapabilsinmi==true)
+                                                        {
+                                                                    <input class="form-check-input me-1" name="1" type="checkbox" onclick="OzelYetki(this)" checked="checked" value="@_modulHeaderVMData.Kullanici_Yetki.FindAll(x => x.Modul_ID == modullistesi.id).Find(Y => Y.Kullanici_ID == kullanici.id).id">
+                                                        }
+                                                        else
+                                                        {
+                                                                    <input class="form-check-input me-1" name="1" type="checkbox" onclick="OzelYetki(this)" value="@_modulHeaderVMData.Kullanici_Yetki.FindAll(x => x.Modul_ID == modullistesi.id).Find(Y => Y.Kullanici_ID == kullanici.id).id">
+                                                        }
+                                                        Güncelleme Yetkisi
+
+                                                     
+                                                    </label>
+
+                                                    <label>
+                                                        @if (@_modulHeaderVMData.Kullanici_Yetki.FindAll(x => x.Modul_ID == modullistesi.id).Find(Y => Y.Kullanici_ID == kullanici.id).KaydetYetkisi == true)
+                                                        {
+                                                                    <input class="form-check-input me-1" name="2" type="checkbox" onclick="OzelYetki(this)" checked="checked" value="@_modulHeaderVMData.Kullanici_Yetki.FindAll(x => x.Modul_ID == modullistesi.id).Find(Y => Y.Kullanici_ID == kullanici.id).id">
+                                                        }
+                                                        else
+                                                        {
+                                                                    <input class="form-check-input me-1" name="2" type="checkbox" onclick="OzelYetki(this)" value="@_modulHeaderVMData.Kullanici_Yetki.FindAll(x => x.Modul_ID == modullistesi.id).Find(Y => Y.Kullanici_ID == kullanici.id).id">
+                                                        }
+                                                        Kaydet Yetkisi
+
+
+                                                    </label>
+
+
+                                                    <label>
+                                                        @if (@_modulHeaderVMData.Kullanici_Yetki.FindAll(x => x.Modul_ID == modullistesi.id).Find(Y => Y.Kullanici_ID == kullanici.id).SilYetkisi == true)
+                                                        {
+                                                                    <input class="form-check-input me-1" name="3" type="checkbox" onclick="OzelYetki(this)" checked="checked" value="@_modulHeaderVMData.Kullanici_Yetki.FindAll(x => x.Modul_ID == modullistesi.id).Find(Y => Y.Kullanici_ID == kullanici.id).id">
+                                                        }
+                                                        else
+                                                        {
+                                                                    <input class="form-check-input me-1" name="3" type="checkbox" onclick="OzelYetki(this)" value="@_modulHeaderVMData.Kullanici_Yetki.FindAll(x => x.Modul_ID == modullistesi.id).Find(Y => Y.Kullanici_ID == kullanici.id).id">
+                                                        }
+                                                        Silme Yetkisi
+
+
+                                                    </label>
+                                                </label>
+                                             
+                                             
+                                                 
+
+                                            }
+                                            else
+                                            {
+                                                <label class="list-group-item">
+                                                        <input class="form-check-input me-1" type="checkbox" value="@modullistesi.id" name="@kullanici.id" onclick="handleClick(this)">
+                                                    @modullistesi.Adi.ToUpper()
+                                                                                                            
+                                                
+                                                </label>
+
+
+
+                                            }
+                                     
+
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                                
+                    </div>
+
+
+                      }
+
+
+               
+                   
+                      
+                        </div>
+         
+                         
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    </div>
+
+
+
+
+
+
+   <div class="card">
+        <label class="list-group-item" >
+            <input class="form-check-input me-1" type="checkbox" value="test" name="test3" onclick="KullaniciAt(this)">
+            Kullanıcıyı Sistemden At
+
+
+
+        </label>
+
+        <button class="btn btn-success" asp-controller="KullaniciYetkiİslemleri" asp-action="YetkiVerBaslat">
+            Kaydet
+        </button>
+   </div>
+ 
+    }
+
+
+
+
+
+
+
+    <script>
+    function handleClick(checkbox) {
+        var EklenecekModul;
+        var Eklenecekkullanici;
+        var SilinecekModul;
+        var Silinecekkullanici;
+
+        if (checkbox.checked) {
+            Eklenecekkullanici = checkbox.name;
+            EklenecekModul = checkbox.value;
+
+            // AJAX isteği için veri nesnesini oluştur
+            var data = {
+                eklenecekkullanici: Eklenecekkullanici,
+                eklenecekmodul: EklenecekModul
+            };
+
+            // AJAX isteği gönder
+            $.ajax({
+                type: "POST",
+                url: "/KullaniciYetkiİslemleri/YetkiListesiDoldur", // Eklenecek kullanıcı ve modul için gidecek olan controller action methodu
+                data: data,
+                success: function (response) {
+                    console.log("Veri başarıyla eklendi.");
+                    // Başarılı bir şekilde eklendiğinde yapılacak işlemler
+                },
+                error: function (xhr, status, error) {
+                    console.error("Veri eklenirken bir hata oluştu: " + error);
+                    // Hata durumunda yapılacak işlemler
+                }
+            });
+        } else {
+            // Checkbox işaretli değilse
+            SilinecekModul = checkbox.value;
+            Silinecekkullanici = checkbox.name;
+
+            // AJAX isteği için veri nesnesini oluştur
+            var data = {
+                silinecekkullanici: Silinecekkullanici,
+                silinecekmodul: SilinecekModul
+            };
+
+            // AJAX isteği gönder
+            $.ajax({
+                type: "POST",
+                url: "/KullaniciYetkiİslemleri/YetkSilDoldur", // Silinecek kullanıcı ve modul için gidecek olan controller action methodu
+                data: data,
+                success: function (response) {
+                    console.log("Veri başarıyla silindi.");
+                    // Başarılı bir şekilde silindiğinde yapılacak işlemler
+                },
+                error: function (xhr, status, error) {
+                    console.error("Veri silinirken bir hata oluştu: " + error);
+                    // Hata durumunda yapılacak işlemler
+                }
+            });
+        }
+    }
+
+</script>
+
+
+
+
+
+
+<script>
+    function OzelYetki(checkbox) {
+        var id;
+        var İslemTip;
+
+        if (checkbox.checked) {
+          
+            id = checkbox.value;
+            İslemTip = checkbox.name;
+
+            // AJAX isteği için veri nesnesini oluştur
+            var data = {
+                id: id,
+                İslemTip: İslemTip
+            };
+
+            // AJAX isteği gönder
+            $.ajax({
+                type: "POST",
+                url: "/KullaniciYetkiİslemleri/OzelYetkiDoldur", // Eklenecek kullanıcı ve modul için gidecek olan controller action methodu
+                data: data,
+                success: function (response) {
+                    console.log("Veri başarıyla eklendi.");
+                    // Başarılı bir şekilde eklendiğinde yapılacak işlemler
+                },
+                error: function (xhr, status, error) {
+                    console.error("Veri eklenirken bir hata oluştu: " + error);
+                    // Hata durumunda yapılacak işlemler
+                }
+            });
+        } else {
+            // Checkbox işaretli değilse
+            id = checkbox.value;
+            İslemTip = checkbox.name;
+            // AJAX isteği için veri nesnesini oluştur
+            var data = {
+                id: id,
+                İslemTip: İslemTip
+            };
+
+            // AJAX isteği gönder
+            $.ajax({
+                type: "POST",
+                url: "/KullaniciYetkiİslemleri/OzelYetkiSilDoldur", // Silinecek kullanıcı ve modul için gidecek olan controller action methodu
+                data: data,
+                success: function (response) {
+                    console.log("Veri başarıyla silindi.");
+                    // Başarılı bir şekilde silindiğinde yapılacak işlemler
+                },
+                error: function (xhr, status, error) {
+                    console.error("Veri silinirken bir hata oluştu: " + error);
+                    // Hata durumunda yapılacak işlemler
+                }
+            });
+        }
+    }
+
+</script>
+
+
+
+
+
+<script>
+    function KullaniciAt(checkbox) {
+        var kullaniciat;
+      
+
+        if (checkbox.checked) {
+
+            kullaniciat = true;
+            
+
+            // AJAX isteği için veri nesnesini oluştur
+            var data = {
+                kullaniciat: kullaniciat,
+              
+            };
+
+            // AJAX isteği gönder
+            $.ajax({
+                type: "POST",
+                url: "/KullaniciYetkiİslemleri/kullaniciAt", // Eklenecek kullanıcı ve modul için gidecek olan controller action methodu
+                data: data,
+                success: function (response) {
+                    console.log("Veri başarıyla eklendi.");
+                    // Başarılı bir şekilde eklendiğinde yapılacak işlemler
+                },
+                error: function (xhr, status, error) {
+                    console.error("Veri eklenirken bir hata oluştu: " + error);
+                    // Hata durumunda yapılacak işlemler
+                }
+            });
+        } else {
+            // Checkbox işaretli değilse
+            kullaniciat = false;
+            // AJAX isteği için veri nesnesini oluştur
+            var data = {
+                kullaniciat: kullaniciat,
+               
+            };
+
+            // AJAX isteği gönder
+            $.ajax({
+                type: "POST",
+                url: "/KullaniciYetkiİslemleri/kullaniciAt", // Silinecek kullanıcı ve modul için gidecek olan controller action methodu
+                data: data,
+                success: function (response) {
+                    console.log("Veri başarıyla silindi.");
+                    // Başarılı bir şekilde silindiğinde yapılacak işlemler
+                },
+                error: function (xhr, status, error) {
+                    console.error("Veri silinirken bir hata oluştu: " + error);
+                    // Hata durumunda yapılacak işlemler
+                }
+            });
+        }
+    }
+
+</script>

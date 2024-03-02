@@ -1,0 +1,10 @@
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.csproj.IkvmFrameworkReference.cache
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.csproj.AssemblyReference.cache
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.AssemblyInfoInputs.cache
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.AssemblyInfo.cs
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.csproj.CoreCompileInputs.cache
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.RazorAssemblyInfo.cache
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.RazorAssemblyInfo.cs
+C:\Users\samet.turker\Source\Repos\TURKERBEY\DHBYS\DHBYS\obj\Release\net7.0\win-x86\WEB.sourcelink.json

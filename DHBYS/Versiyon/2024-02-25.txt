@@ -1,0 +1,3 @@
+8dbc767 - samet TÜRKER, 8 minutes ago : Versiyon notlari testleri yapıldı Hatalar Giderildi
+8b7af71 - samet TÜRKER, 4 hours ago : Versiyon notlari İle oluşan Sorunlar Giderildi
+6f9c832 - samet TÜRKER, 7 hours ago : Versiyon takibi eklendi

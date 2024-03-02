@@ -1,0 +1,138 @@
+8b7af71 - samet TÜRKER, 4 hours ago : Versiyon notlari İle oluşan Sorunlar Giderildi
+6f9c832 - samet TÜRKER, 6 hours ago : Versiyon takibi eklendi
+af41d81 - samet TÜRKER, 2 days ago : kullanici Yetki Ekranı hatalari giderildi
+e88c699 - samet TÜRKER, 2 days ago : kullanici Yetki Ekranı Tamamlandı
+a1e6e34 - samet TÜRKER, 3 days ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+c829eea - samet TÜRKER, 3 days ago : Dark Modu Sabitlendi Kullanici tanimlama Ekranı Güncellendi
+9d7cc3a - BATUHAN BOZKURT, 4 days ago : ..
+095c019 - samet TÜRKER, 4 days ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+39a2055 - samet TÜRKER, 4 days ago : Kullanici Tanimlama & Giris İslemleri Kullanici tanimlama ekranı Eklendi Giriş İşlemleri kontrolü güncellendi
+da6afa7 - BATUHAN BOZKURT, 4 days ago : Deneme
+2d96dd1 - BATUHAN BOZKURT, 4 days ago : #Revize Çalışmaları - Hasta Kayıt Kabul'de Hasta Arama Ekranına Geri Dönülebilmesi İçin Buton(İkon) eklendi. - Hesabım kısmında ki kullanılmayacak olan yönlendirme işlevleri kaldırıldı. Yalnızca Çıkış Yap Bırakıldı. - Proje Adı HBYS olarak güncellendi. - Syntax Hataları Giderildi.
+4e53dc1 - samet TÜRKER, 5 days ago : Hata. Sorunlu Gelen kod Satırları Düzeltildi
+2b6e0fe - samet TÜRKER, 5 days ago : Yetki Ekrani Hatalari Yetkilendirme ekranında oluşan hatalar giderildi iyileştirme yapıldı.
+d17d59c - BATUHAN BOZKURT, 6 days ago : deneme
+39cbd29 - BATUHAN BOZKURT, 6 days ago : Hocaya Özel Revize
+9b15cdf - samet TÜRKER, 6 days ago : Ozel Yetki Butonları aktif hale Getirildi memoryCache bulunan verileri Temizlemesi için Yetki işleminden Sonra Kullaniyi Sistemden atmasını saglıyan yeni özellik eklendi
+cce7ecc - samet TÜRKER, 8 days ago : 
+0782e79 - samet TÜRKER, 8 days ago : Yetki Ekranı Genel Yetki Verme Alma İşlemi Tamamlandı
+226ee09 - samet TÜRKER, 9 days ago : hatalar giderildi 2
+41dbbf9 - BATUHAN BOZKURT, 9 days ago : Hocaya Özel
+32ab4c9 - BATUHAN BOZKURT, 9 days ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+6bfc99c - BATUHAN BOZKURT, 9 days ago : TedaviTur çalışmaları2
+e8a794b - samet TÜRKER, 9 days ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+7cb72dc - samet TÜRKER, 9 days ago : Hatalar Giderildi
+f8b1dcf - BATUHAN BOZKURT, 9 days ago : TedaviTur çalışmaları
+ae0d298 - BATUHAN BOZKURT, 9 days ago : Hasta Kart
+afb5647 - samet TÜRKER, 9 days ago : Hastakart Modeli Eklendi
+2388f7c - samet TÜRKER, 10 days ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+338ce1d - samet TÜRKER, 10 days ago : Yetki Ekranı Tasarimi Yapıldı
+1b835f8 - BATUHAN BOZKURT, 10 days ago : Hasta Kayıt Ekranında "Başlangıç Tarihi" ve "Bitiş Tarihi" inputlarının bulunduğumuz günü baz alması sağlandı.
+ec01002 - BATUHAN BOZKURT, 10 days ago : core.css
+c9e4241 - BATUHAN BOZKURT, 10 days ago : Css denemesi
+81468bf - BATUHAN BOZKURT, 10 days ago : HastaKayitKabul ekranı revize edildi.
+8e496d5 - BATUHAN BOZKURT, 10 days ago : Hasta Kart Açma Sayfası Tasarımına Başlandı.
+6de035c - samet TÜRKER, 11 days ago : Yetkilendirme Alt Yapısı eklendi
+ff8ea9c - samet TÜRKER, 11 days ago : kullanici işlemleri controlleri eklendi
+f882993 - samet TÜRKER, 2 weeks ago : Hatalar Giderildi
+f7d02e4 - samet TÜRKER, 2 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+7209997 - samet TÜRKER, 2 weeks ago : Kart açma Modul Controller Eklendi
+4a893f5 - BATUHAN BOZKURT, 3 weeks ago : deneme
+b538f2b - BATUHAN BOZKURT, 3 weeks ago : css çalışmaları
+069017f - BATUHAN BOZKURT, 3 weeks ago : css çalışmaları
+57e98e8 - samet TÜRKER, 3 weeks ago : Tc Karakter Sınırı hatası giderildi
+8b4a1cd - samet TÜRKER, 3 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+fa1be45 - samet TÜRKER, 3 weeks ago : Log Bilgisi Düzenlendi
+489428f - BATUHAN BOZKURT, 3 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+b8a857e - BATUHAN BOZKURT, 3 weeks ago : Console'a gelen tarih hatası giderildi.
+46f160e - samet TÜRKER, 3 weeks ago : Düzenleme Butonu işlemleri tamamlandı
+4a7cbee - samet TÜRKER, 3 weeks ago : Hatalar giderildi
+fa7e2d7 - samet TÜRKER, 3 weeks ago : Güncelle Ekranın BackEnd Eksikleri Bir kısmı Tamamlandı
+4a5bad2 - BATUHAN BOZKURT, 3 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+8cfd770 - BATUHAN BOZKURT, 3 weeks ago : Hasta Düzenle ile HastaKayitTip_ID otomatik SET edilmesi sağlandı
+12abd14 - samet TÜRKER, 3 weeks ago : Cache Veriler Temizlendi
+1983b65 - BATUHAN BOZKURT, 3 weeks ago : Kod düzenlemeleri
+b363c64 - samet TÜRKER, 3 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+a7b805d - samet TÜRKER, 3 weeks ago : Düzenleme Modülü Eksikleri
+0afc82e - BATUHAN BOZKURT, 3 weeks ago : Kod üzerinde estetik düzenlemeleri
+6e450c2 - samet TÜRKER, 3 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+7b282be - samet TÜRKER, 3 weeks ago : Düzenle Butonu Alt Yapısı Hazırlandı
+0d7a755 - BATUHAN BOZKURT, 3 weeks ago : deneme
+1c749bc - BATUHAN BOZKURT, 3 weeks ago : deneme
+bebe530 - samet TÜRKER, 3 weeks ago : Yeni Kayit Butonu Eklendi Aktif Hale Getirildi
+533a5e9 - samet TÜRKER, 3 weeks ago : Zorunlu Alan Kısıtlaması Kayit Türüne Göre Ayarlandı
+6e4cf31 - samet TÜRKER, 3 weeks ago : Hatalar Giderildi
+057efdd - samet TÜRKER, 3 weeks ago : Güvenlik Güncellemeleri Yapıldı Kayit Ekranından Sonraki Hata Giderildi
+b1f5e44 - samet TÜRKER, 3 weeks ago : Azure Aktarım Başlatıldı
+0f81b3b - samet TÜRKER, 3 weeks ago : .net 7 Güncellemesi Sonrası Web Servis Ve diger Paketler Güncellendi Hasta kayitta Anne baba tcsi sınırı belirlendi
+38986ae - samet TÜRKER, 3 weeks ago : .net 7 Güncellemsi Yapıldı
+d55694c - samet TÜRKER, 3 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+6155503 - samet TÜRKER, 3 weeks ago : .net 7 Sürümüne Geçildi
+953b835 - BATUHAN BOZKURT, 3 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+9a50625 - BATUHAN BOZKURT, 3 weeks ago : deneme
+14353ea - samet TÜRKER, 3 weeks ago : Hasta Kaydetme Arama Kısımlarinda Toupper Kullanıldı Hasta Kaydıntan sonra Gelmiyen uyarı sorunu giderildi
+e891b64 - samet TÜRKER, 3 weeks ago : Hasta Kayit Modulu Eksikleri Giderildi
+7747dac - samet TÜRKER, 3 weeks ago : Uyruk Alani Düzenlendi
+f2b0fe5 - BATUHAN BOZKURT, 3 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+edfc9ba - BATUHAN BOZKURT, 3 weeks ago : +++
+41c010a - samet TÜRKER, 3 weeks ago : Uyrum Name Düzenlendi
+ef8ecd3 - samet TÜRKER, 3 weeks ago : Kayit İşlemi Yetkiye Baglandi Kayit işleminde Kimlik Dogrulama Servisi Kullanıldı Kayit işlemi logu aktif Hale Getirildi
+f112b2a - BATUHAN BOZKURT, 3 weeks ago : "Hasta Bilgisi Bulunamadığından Kayıt Ekranına Yönlendirildiniz..." uyarısının 6 saniye sonra kapatılması düzenlendi
+ffa9fd5 - BATUHAN BOZKURT, 3 weeks ago : Uyruk Seçimine "TÜRKİYE CUMHURİYERİ" default set edildi.
+d79d1c0 - BATUHAN BOZKURT, 3 weeks ago : Vatandaş Seçiminde; Yupass harici zorunlu kılındı. Task'ta olmamasına rağmen analiz edilerek; tüm hasta türü kayıtlarında cinsiyet alanı zorunlu kılındı. Ek olarak "Seçiniz" kısmının seçilebilmesi de-aktif edildi
+5a6dc0d - samet TÜRKER, 3 weeks ago : Hasta Arama Bulunan Sorunlar Giderildi
+87dff64 - BATUHAN BOZKURT, 3 weeks ago : Hasta Kayıt Aşamasında "KayitTur" e göre label ve input'lara açılır - kapanır özelliği eklendi.
+741e7eb - BATUHAN BOZKURT, 3 weeks ago : label-control alanları text'ten number'a çevrildi, estetik düzenlemeleri yapıldı.
+a7eb0ea - samet TÜRKER, 3 weeks ago : Error Syafası Güncellendi
+f01ec14 - samet TÜRKER, 3 weeks ago : Alert Css Tanimlandi
+8de73a9 - samet TÜRKER, 3 weeks ago : Hasta Kayit Eksikleri Giderildi
+70400f0 - samet TÜRKER, 4 weeks ago : Hasta Kabul De kayit işlemi için Gerekli Alt yapı oluşturuldu
+378d0de - BATUHAN BOZKURT, 4 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+849a669 - BATUHAN BOZKURT, 4 weeks ago : 'Hastayı Getir' butonu center'a hizalandı
+6d9d55d - samet TÜRKER, 4 weeks ago : Loglama İşlemlerinde oluşan Eksikler Giderildi
+d9c9bef - samet TÜRKER, 4 weeks ago : Hasta Kayit kabul css leri düzenlendi
+cb6af6d - samet TÜRKER, 4 weeks ago : css Sorunları Giderildi
+fabfc67 - BATUHAN BOZKURT, 4 weeks ago : Estetik çalışmaları
+b14a0ce - samet TÜRKER, 4 weeks ago : Görüntüleme Logu Sorunları Giderildi Aktif Hale Getirildi
+c02abe2 - samet TÜRKER, 4 weeks ago : Arama Kriterleri Düzenlendi
+cd69373 - samet TÜRKER, 4 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+d730a02 - samet TÜRKER, 4 weeks ago : Arama Kriterleri Güncellendi
+f6be811 - BATUHAN BOZKURT, 4 weeks ago : CSS'ler güncellendi.
+b7646d3 - samet TÜRKER, 4 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+3357315 - samet TÜRKER, 4 weeks ago : Arama Kriterleri düzenlendi
+47be489 - BATUHAN BOZKURT, 4 weeks ago : Türkçeleştirme çalışmaları
+009055c - samet TÜRKER, 4 weeks ago : Hasta Kayit Kabul ekranın Hasta Dosya numarasi ile arama  front end ve back end kısımları tamamlandı
+2897d0b - samet TÜRKER, 4 weeks ago : Error Sayfası Eklendi
+b21a5a9 - samet TÜRKER, 4 weeks ago : Logout Butonu Aktif hale Getirildi
+e881780 - samet TÜRKER, 4 weeks ago : Session Kontrolü eklendi Güvenlikle ilgili Güncellemeler yapıldı
+c18caea - samet TÜRKER, 4 weeks ago : Data Azure ye Taşındı ( ip yetkisi gerektiriyor)
+8ba40dd - BATUHAN BOZKURT, 4 weeks ago : Gereksiz dosyalar silndi, HTML kodları Türkçe dil desteğine uyarlandı, Modül Arama kısmında gereksiz alanlar "Files","Members" kısımları kaldırıldı.
+876cba6 - samet TÜRKER, 4 weeks ago : Modul Yönlendirme işlemi Dinamik Hale Getirildi
+88cd642 - samet TÜRKER, 4 weeks ago : Güvenlik le alakalı Güncellemeler Yapıldı kullanici Bilgileri Diger Ekranlara Taşınması Saglandı
+bb90bcd - BATUHAN BOZKURT, 4 weeks ago : Ver. Hastakayit.css eklendi E-devlet butonu kaldırıldı
+1e61ce9 - samet TÜRKER, 4 weeks ago : Hatalar Giderildi
+0384eef - samet TÜRKER, 4 weeks ago : Tablolar Vem Kriterine Uyarlandi
+0102081 - BATUHAN BOZKURT, 4 weeks ago : HastaKayitKabul index'e yönlendirme sağlandı (FrontEnd)
+c5441c3 - BATUHAN BOZKURT, 4 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+1d7ba26 - BATUHAN BOZKURT, 4 weeks ago : Yazım hataları giderildi
+ae8c833 - samet TÜRKER, 4 weeks ago : Kayit kabul contorolleri eklendi
+936958c - BATUHAN BOZKURT, 4 weeks ago : Estetik çalışmaları yapıldı
+ae893f5 - BATUHAN BOZKURT, 4 weeks ago : - Çoklu dil desteği kaldırıldı - Alışveriş sepeti kaldırıldı - Bildirimler&Duyurlar kısmı revize edilip Türkçe dil desteği verildi.
+80a1c8e - samet TÜRKER, 4 weeks ago : loglama işlemi
+9418149 - samet TÜRKER, 4 weeks ago : Loglama Yapısı Tamamlandı
+c12f5e4 - BATUHAN BOZKURT, 4 weeks ago : Syntax hataları giderilid.
+5b0c224 - samet TÜRKER, 4 weeks ago : Loglama işleminde insert delete görüntüleme loglamaları tamamlandı
+c5d99ba - samet TÜRKER, 4 weeks ago : Log işlemleri için eklenen alanlar
+8122772 - samet TÜRKER, 4 weeks ago : Yetki Grup Tur Adi view modelde kullanılacak olan modele eklendi
+f823323 - samet TÜRKER, 4 weeks ago : Loglama tanimlar gelmesin diye generic classı ikiye çıkarıldı yetki grup adi eklendi
+276feb7 - samet TÜRKER, 4 weeks ago : ModulHeaderVM kullanici bilgisi eklendi
+935dfba - samet TÜRKER, 4 weeks ago : layout düzenleme yapıldı
+ce87c71 - BATUHAN BOZKURT, 4 weeks ago : Footer alanında değişiklik yapıldı
+35f14be - test test, 4 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+0454467 - test test, 4 weeks ago : Loggin işlemi için Servis Aktif edildi
+fba5b84 - BATUHAN BOZKURT, 4 weeks ago : Merge branch 'master' of https://github.com/TURKERBEY/DHBYS
+07e2ffc - BATUHAN BOZKURT, 4 weeks ago : Footer bölümünde değişiklik yapıldı
+51d4993 - BATUHAN BOZKURT, 4 weeks ago : deneme
+4f31cfa - samet Türker, 5 weeks ago : Delete sneat-1.0.0 directory
+393a7b0 - samet.turker, 5 weeks ago : Add project files.
+4e3adc6 - samet.turker, 5 weeks ago : Add .gitignore and .gitattributes.

@@ -1,0 +1,83 @@
+﻿@using EntityLayer.Models
+
+ 
+@{
+	ModulHeaderVMData subHeader;
+	if (ViewData["SubHeader"] == null)
+	{
+		@*    subHeader = new SubHeaderVM()
+			{
+			MainCategory = "HBYS",
+			FirstSubCategory = "",
+			FirstUrl = "#",
+			SecondSubCategory = "",
+			SecondUrl = "#",
+			ThirdSubCategory = ""
+			};*@
+
+
+		subHeader = new ModulHeaderVMData()
+		{
+			Modulid = 0,
+			ModulAdi = "",
+
+
+		};
+
+	}
+	else
+	{
+		subHeader = (ModulHeaderVMData)ViewData["SubHeader"];
+	}
+}
+
+
+@if (subHeader.moduls != null)
+{
+
+	@foreach (var item in subHeader.Anamoduls)
+	{
+		@if (item.Adi.Length > 0)
+		{
+			<li class="nav-item">
+			 <a class="d-flex align-items-center" href="#">
+			  <i data-feather="rotate-cw"></i>
+			  <span class="menu-title text-truncate" data-i18n="StockReceipt">@item.Adi</span>
+			 </a>
+			 <ul class="menu-content">
+					@foreach (var ustmodulitem in subHeader.Ustmoduls.FindAll(X => X.UstModul_ID == item.id))
+					{
+
+				  <li class="nav-item">
+				   <a class="d-flex align-items-center" href="#">
+					<i data-feather="rotate-cw"></i>
+					<span class="menu-title text-truncate" data-i18n="StockReceipt">@ustmodulitem.Adi</span>
+				   </a>
+				   <ul class="menu-content">
+
+								@foreach (var modulitem in subHeader.moduls.FindAll(X => X.UstModul_ID == ustmodulitem.id))
+								{
+
+
+						<Li> <a class="d-flex align-items-center"  asp-action="@modulitem.Action" asp-controller="@modulitem.Controller" asp-area=""  asp-route"@subHeader"   onreadystatechange="@subHeader"><i data-feather="circle" ></i><span class="menu-item text-truncate"  >@modulitem.Adi</span></a></Li>
+
+
+								}
+
+				   </ul>
+
+				  </li>
+
+
+					}
+
+			 </ul>
+			</li>
+
+		}
+
+
+
+	}
+
+}

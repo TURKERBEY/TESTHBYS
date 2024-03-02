@@ -1,0 +1,1369 @@
+﻿@*@model WEB.Models.HastaAramaModel;*@
+
+@using EntityLayer.Concrete;
+@using WEB.Models
+@{
+							 	<title>@ViewData["Title"]HBYS</title>
+	@*ViewData["Title"] = "HBYS";*@
+	Layout = "_Layout";
+
+	HastaAramaModel hastaAramaModel;
+	hastaAramaModel = (HastaAramaModel)ViewData["Hasta"];
+	Hasta hastaKayitBilgisi = new Hasta();
+	if(hastaAramaModel is not null)
+	{
+		if(hastaAramaModel.Hastalistesi is not null)
+		{
+			if (hastaAramaModel.Hastalistesi.Count == 1)
+			{
+				hastaKayitBilgisi = hastaAramaModel.Hastalistesi[0];
+			}
+		}
+		
+	}
+
+	
+
+
+}
+
+
+<head>
+ @*  <link rel="stylesheet" href="~/app-assets/css"> *@
+  <script src="~/app-assets/vendors/js/jquery/jquery.min.js"></script>
+  <script src="~/app-assets/vendors/js/bootstrap/bootstrap.min.js"></script>
+
+ <link rel="stylesheet" href="~/app-assets/vendors/fonts/boxicons.css" />
+
+ <link rel="stylesheet" href="~/app-assets/vendors/css/core.css" class="template-customizer-core-css" /> @* //sayfadaki alanların büyüdüğü kısım revize edilecek. *@
+
+@*  <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" /> *@
+ 
+@*  <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" /> *@
+
+
+	<script src="~/app-assets/vendors/js/helpers.js"></script>
+</head>
+
+ <!-- HASTA ARAMA ALANİ  -->
+
+
+ @if(hastaAramaModel.İslemTur!=1 && hastaAramaModel.İslemTur!=4)
+ {
+
+
+	<body>
+ <form id="login" method="post" class="">
+
+		@using (Html.BeginForm("Index", "HastaKayitKabul", FormMethod.Post,hastaAramaModel.İslemTur=3))
+		{
+			 
+			
+				
+				         @if (ViewBag.Message is not null)
+    {
+		<div id="alertMessage" class="alert alert-success">
+			<a href="#" class="close" aria-label="close">&times;</a>
+			<strong></strong> @ViewBag.Message
+		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				var alertMessage = document.getElementById('alertMessage');
+				if (alertMessage) {
+					setTimeout(function () {
+						alertMessage.style.display = 'none';
+					}, 6000); 
+				}
+			});
+		</script>
+		
+
+    }
+
+
+	<div class="card mb-4" style="width:550px; left:450px;">
+	   <h5 class="card-header">Hasta Arama</h5>
+	   <div class="card-body">
+		<div class="mb-3 row">
+		 <label for="html5-text-input" class="col-md-2 col-form-label">Kimlik No</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="number" value="" maxlength="11" name="Tckimlik" id="Tckimlik" />
+		 </div>
+		</div>
+		<div class="mb-3 row">
+		 <label for="html5-search-input" class="col-md-2 col-form-label">Dosya No</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="number" id="Dosyano" name="Dosyano" />
+		 </div>
+		</div>
+		<div class="mb-3 row">
+		 <label for="html5-search-input" class="col-md-2 col-form-label">Başvuru No</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="number" id="Basvuruno" name="Basvuruno" />
+		 </div>
+		</div>
+		<div class="mb-3 row">
+		 <label for="html5-email-input" class="col-md-2 col-form-label">Adı</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="text" name="Adi" id="Adi" />
+		 </div>
+		</div>
+		<div class="mb-3 row">
+		 <label for="html5-url-input" class="col-md-2 col-form-label">Soyadı</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="text" name="Soyadi" id="Soyadi" />
+		 </div>
+		</div>
+
+		<div class="mb-3 row">
+		 <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Başlangıç Tarihi</label>
+		 <div class="col-md-10">
+		  <input class="form-control"
+							   type="date"
+							   value=""
+							   id="html5-datetime-local-input"
+							   name="BaslangicTarihi" />
+		 </div>
+		</div>
+
+						<script>
+							var today = new Date();
+
+							// Tarihi "YYYY-MM-DD" formatına dönüştür
+							var formattedDate = today.toISOString().split('T')[0];
+
+							// Input elemanının value özelliğine bulunduğumuz tarihi set et
+							document.getElementById('html5-datetime-local-input').value = formattedDate;
+						</script>
+
+		<div class="mb-3 row">
+		 <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Bitiş Tarihi</label>
+		 <div class="col-md-10">
+		  <input class="form-control"
+							   type="date"
+							   value=""
+							   id="html5-datetime-local-input1"
+							   name="BitisTarihi" />
+		 </div>
+		</div>
+
+						<script>
+							var today = new Date();
+
+							// Tarihi "YYYY-MM-DD" formatına dönüştür
+							var formattedDate = today.toISOString().split('T')[0];
+
+							// Input elemanının value özelliğine bulunduğumuz tarihi set et
+							document.getElementById('html5-datetime-local-input1').value = formattedDate;
+						</script>
+					
+
+					<div class="col-md-10">
+						<div class="d-grid gap-2 col-lg-7 mx-auto">
+								<button class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="HastaKayitKabul" asp-action="HastaGetir" type="submit">  Hastayı Getir </button>
+								<button class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="HastaKayitKabul" asp-action="YeniKayit" type="submit">Yeni Hasta Kayit	</button>
+								
+
+
+					</div>
+						</div>
+					</div>
+
+
+
+
+
+						<!--/ Bootstrap Table with Header Dark -->
+
+
+
+
+
+	  </div>
+
+
+		}
+
+ </form>
+
+</body>
+
+}
+
+                                                         <!-- HASTA KAYİT ALANİ -->
+
+
+ @if(hastaAramaModel.İslemTur==1 )
+ {
+	@* <script style=""  type="text/javascript">
+
+	window.onload = function () {
+	alert("Hasta Bulunamadi Hasta Kayit İşlemine Yönlendiriliyorsunuz...");
+	};
+
+
+
+	</script>
+*@
+
+	@if (ViewBag.Message is not null)
+	{
+		<div id="alertMessage" class="alert alert-danger">
+			<a href="#" class="close" aria-label="close" onclick="closeAlert(event)">&times;</a>
+			<strong></strong> @ViewBag.Message
+		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				var alertMessage = document.getElementById('alertMessage');
+				if (alertMessage) {
+					setTimeout(function () {
+						alertMessage.style.display = 'none';
+					}, 6000);
+				}
+			});
+
+			function closeAlert(event) {
+				event.preventDefault();
+				var alertMessage = document.getElementById('alertMessage');
+				if (alertMessage) {
+					alertMessage.style.display = 'none';
+				}
+			}
+		</script>
+	}
+	 
+<body>
+ <form id="login" method="post" class="">
+
+		@using (Html.BeginForm("Index", "HastaKayitKabul", FormMethod.Post))
+		{
+
+	
+
+	  <div class="card mb-4">
+	   <h5 class="card-header">Hasta Kayıt</h5>
+	   <div class="card-body">
+		<div class="mb-3 row">
+
+							<div class="mb-3 row">
+								<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Hasta Kayıt Tür</label>
+								<div class="col-md-10">
+									<select id="HastaKayitTip_id" name="HastaKayitTip_id" class="form-select" required="required" onchange="showAdditionalLabel()">
+										<option value="" disabled selected>Seçiniz..</option>
+										@foreach (var item in @hastaAramaModel.HastaKayitTur)
+										{
+											<option value="@item.id">@item.Adi</option>
+										}
+									</select>
+
+																		
+							 </div>
+							</div>
+
+							 <script>
+								 function showAdditionalLabel() {
+									 // var ile Başlıyan komutlar inputların idlerini alıp bir degişkene atıyor
+									 var selectElement = document.getElementById("HastaKayitTip_id");
+									var selectedValue = selectElement.value;
+									console.log("seçilen değer: " + selectedValue);
+									 var additionalLabelPasaportNo = document.getElementById("additionalLabelPasaportNo");
+									 var additionlInputPasaportNo = document.getElementById("additionalİnputPasaportNo");
+									 var additionalLabelAnneTC = document.getElementById("additionalLabelAnneTC");
+									 var additionlInputAnneTC = document.getElementById("additionlInputAnneTC");
+									 var additionalLabelBabaTC = document.getElementById("additionalLabelBabaTC");
+									 var additionlInputBabaTC = document.getElementById("additionlInputBabaTC");
+									 var additionalLabelBeyanTarih = document.getElementById("additionalLabelBeyanTarih");
+									 var additionlInputBeyanTarih = document.getElementById("additionlInputBeyanTarih");
+									 var additionalInputTC = document.getElementById("additionalInputTC");
+									 var Ad = document.getElementById("Ad");
+									 var Soyad = document.getElementById("Soyad");
+									 var DogumTarih = document.getElementById("DogumTarih");
+									 var DogumYeri = document.getElementById("DogumYeri");
+									 var AnneAdi = document.getElementById("AnneAdi");
+									 var BabaAdi = document.getElementById("BabaAdi");
+									 var Adres = document.getElementById("Adres");
+									 var additionalLabelKimlikSizHastaBilgisi = document.getElementById("additionalLabelKimlikSizHastaBilgisi");
+									 var additionlInputKimlikSizHastaBilgisi = document.getElementById("additionlInputKimlikSizHastaBilgisi");
+
+									 // Seçilen değeri kontrol et (örneğin, "Diğer" seçildiğinde)
+
+
+									 if (selectElement.value === "1") {
+										 // additionalInputTC.insertAdjacentElement("required");
+										 // additionalInputTC.insertAdjacentHTML(required"required");
+										 Adres.setAttribute("required", "required");
+										 DogumYeri.setAttribute("required", "required");
+										 additionalInputTC.setAttribute("required", "required");
+									 }
+									 else {
+										 additionalInputTC.removeAttribute("required");
+									 }
+
+
+									 if (selectElement.value === "2") {
+										 additionalInputTC.removeAttribute("required");
+										 additionalLabelAnneTC.style.display = "block"; // Ek bilgi etiketini görünür yap
+										 additionlInputAnneTC.style.display = "block";
+										 additionalLabelBabaTC.style.display = "block";
+										 additionlInputBabaTC.style.display = "block";
+										 additionalLabelBeyanTarih.style.display = "block";
+										 additionlInputBeyanTarih.style.display = "block";
+									 } else {
+										 additionalLabelAnneTC.style.display = "none"; // Diğer durumda ek bilgi etiketini gizle
+										 additionlInputAnneTC.style.display = "none";
+										 additionalLabelBabaTC.style.display = "none";
+										 additionlInputBabaTC.style.display = "none";
+										 additionalLabelBeyanTarih.style.display = "none";
+										 additionlInputBeyanTarih.style.display = "none";
+									 }
+									if (selectElement.value === "3") {
+										DogumYeri.removeAttribute("required");
+										Adres.removeAttribute("required");
+										additionalInputTC.removeAttribute("required");
+										additionalLabelPasaportNo.style.display = "block"; // Ek bilgi etiketini görünür yap
+										additionlInputPasaportNo.style.display = "block";
+									} else {
+										additionalLabelPasaportNo.style.display = "none"; // Diğer durumda ek bilgi etiketini gizle
+										additionlInputPasaportNo.style.display = "none";
+									}
+
+									 if (selectElement.value === "5" || selectElement.value === "4") {
+										 additionalInputTC.removeAttribute("required");
+										 DogumTarih.removeAttribute("required");
+										 DogumYeri.removeAttribute("required");
+										 AnneAdi.removeAttribute("required");
+										 BabaAdi.removeAttribute("required");
+										 Adres.removeAttribute("required");
+										 additionlInputKimlikSizHastaBilgisi.setAttribute("required", "required");
+										 additionalLabelKimlikSizHastaBilgisi.style.display = "block"; // Ek bilgi etiketini görünür yap
+										 additionlInputKimlikSizHastaBilgisi.style.display = "block";
+									 }
+									 else {
+										 additionlInputKimlikSizHastaBilgisi.removeAttribute("required");
+										 additionalInputTC.setAttribute("required", "required");
+										 DogumTarih.setAttribute("required", "required");
+										 DogumYeri.setAttribute("required", "required");
+										 AnneAdi.setAttribute("required", "required");
+										 BabaAdi.setAttribute("required", "required");
+										 Adres.setAttribute("required", "required");
+										 additionalLabelKimlikSizHastaBilgisi.style.display = "none"; // Ek bilgi etiketini görünür yap
+										 additionlInputKimlikSizHastaBilgisi.style.display = "none";
+
+									 }
+								 }
+
+								</script>
+								<div class="mb-3 row">
+
+							<label id="additionalLabelTC" for="html5-text-input" class="col-md-2 col-form-label">Kimlik No</label>
+		 <div class="col-md-10">
+									<input id="additionalInputTC" class="form-control" type="number" value="" maxlength="11" name="TC" required="required" />
+		 </div>
+		</div>
+
+		
+		<div class="mb-3 row">
+		 <label for="html5-email-input" class="col-md-2 col-form-label">Adı</label>
+		 <div class="col-md-10">
+									<input class="form-control" type="text" name="Ad" id="Ad" required="required" />
+		 </div>
+		</div>
+		<div class="mb-3 row">
+		 <label for="html5-url-input" class="col-md-2 col-form-label">Soyadı</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="text" name="Soyad" id="Soyad"  required="required" />
+		 </div>
+		</div>
+
+		<div class="mb-3 row">
+		 <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Doğum Tarihi</label>
+		 <div class="col-md-10">
+		  <input class="form-control"
+							   type="date"
+					
+							   id="DogumTarih"
+							   name="DogumTarih"  required="required" />
+		 </div>
+		</div>
+
+		<div class="mb-3 row">
+							<label id="additionalLabelBeyanTarih" for="html5-datetime-local-input" class="col-md-2 col-form-label" style="display: none;">Beyan Doğum Tarihi</label>
+		 <div class="col-md-10">
+								<input id="additionlInputBeyanTarih" style="display: none;" class="form-control"
+							   type="date"							   
+							   name="Beyan_DogumTarih" />
+		 </div>
+		</div>
+
+				<div class="mb-3 row">
+					
+						<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Uyruk</label>
+						<div class="col-md-10">
+                        <select id="Uyruk_id" name="Uyruk_id" class="form-select">
+										<option value="" disabled selected>Seçiniz..</option>
+									@foreach (var item in hastaAramaModel.UyrukTur)
+									{
+										if (item.ID == 114)
+										{
+											<option value="@item.ID" selected>@item.Adi</option>
+										}
+										else
+										{
+											<option value="@item.ID">@item.Adi</option>
+										}
+									}
+					
+                     
+                        </select>
+                      </div>
+					  </div>
+
+
+
+					  	<div class="mb-3 row">
+		 <label for="html5-url-input" class="col-md-2 col-form-label">Doğum Yeri</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="text" name="DogumYeri" id="DogumYeri"  required="required" />
+		 </div>
+		</div>
+
+
+	
+				<div class="mb-3 row">
+					
+						<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Cinsiyet</label>
+						<div class="col-md-10">
+                        <select  name="Cinsiyet" id="Cinsiyet" class="form-select" required>
+                        <option value="" disabled selected>Seçiniz..</option>
+								 
+										  <option value="ERKEK">ERKEK</option>
+										<option value="KADIN">KADIN</option>
+										<option value="BELİRTMEK İSTEMİYOR">BELİRTMEK İSTEMİYOR</option>
+					
+                     
+                        </select>
+                      </div>
+					  </div>
+
+
+					  						  			  	<div class="mb-3 row">
+		 <label for="html5-url-input" class="col-md-2 col-form-label">Anne Adı</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="text" name="AnneAdi" id="AnneAdi"  required="required"  />
+		 </div>
+		</div>
+
+
+					  						  			  	<div class="mb-3 row">
+		 <label for="html5-url-input" class="col-md-2 col-form-label">Baba Adı</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="text" name="BabaAdi" id="BabaAdi" required="required"   />
+		 </div>
+		</div>
+
+
+								  			  	<div class="mb-3 row">
+		 <label for="html5-url-input" class="col-md-2 col-form-label">Adres</label>
+		 <div class="col-md-10">
+								<input class="form-control" type="text" name="Adres" id="Adres" required="required" />
+		 </div>
+		</div>
+
+							<div class="mb-3 row">
+								<label id="Telefon" for="html5-url-input" class="col-md-2 col-form-label">Telefon</label>
+								<div class="col-md-10">
+									<input id="Telefon" class="form-control" type="number" name="Telefon" />
+								</div>
+							</div>
+
+		<div class="mb-3 row">
+							<label id="additionalLabelYupass" for="html5-url-input" class="col-md-2 col-form-label">Yupass</label>
+		<div class="col-md-10">
+								<input id="additionalInputYupass" class="form-control" type="text" name="Yupass" 	/>
+		</div>
+		</div>
+
+
+					  			  	<div class="mb-3 row">
+								<label for="html5-url-input" class="col-md-2 col-form-label" style="display: none" id="additionalLabelPasaportNo">Passaport No</label>
+		 <div class="col-md-10">
+									<input class="form-control" style="display: none" type="text" name="PasaportNo" id="additionalİnputPasaportNo" />
+		 </div>
+		</div>
+							<div class="mb-3 row">
+								<label id="additionalLabelKimlikSizHastaBilgisi" for="html5-url-input" style="display: none" class="col-md-2 col-form-label">Kimliksiz Hasta Bilgisi</label>
+								<div class="col-md-10">
+									<input id="additionlInputKimlikSizHastaBilgisi" class="form-control" style="display: none" type="text" name="Kimliksiz_HastaBilgisi" required="required" />
+								</div>
+							</div>
+
+
+					  			  	<div class="mb-3 row">
+								<label id="additionalLabelAnneTC" for="html5-url-input" style="display: none" class="col-md-2 col-form-label">Anne Tc</label>
+							<div class="col-md-10">
+									<input id="additionlInputAnneTC" class="form-control" style="display: none" type="number" name="AnneTc" />
+			        </div>
+		</div>
+
+							
+
+
+
+							  			  	<div class="mb-3 row">
+								<label id="additionalLabelBabaTC" for="html5-url-input" style="display: none" class="col-md-2 col-form-label">Baba Tc</label>
+		 <div class="col-md-10">
+									<input id="additionlInputBabaTC" class="form-control" style="display: none" type="number" name="BabaTc" />
+		 </div>
+		</div>
+
+
+
+							<div class="col-md-10">
+								<div class="d-grid gap-2 col-lg-7 mx-auto">
+									<button class="hastaAramaDon" onclick="window.location.href='/HastaKayitKabul/Index'"
+												style="position: relative;
+												top: 40px;
+												width: 40px;
+												height: 40px;
+												padding: 0;
+												background: none;
+												left: -170px;
+											    border: none;">
+										<img src="~/app-assets/images/arama.png" alt="Icon" style="width: 100%; height: 100%; border-radius: 50%;">
+									</button>
+								</div>
+							</div>
+
+						
+
+		<div class="col-md-10">
+		 <div class="d-grid gap-2 col-lg-7 mx-auto">
+		  <button class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="HastaKayitKabul" asp-action="HastaKaydet" style="
+    padding-right: 10px;
+    border-right-width: 4px;
+    right: 50px;
+    left: 200px;
+    ">
+		   Hastayı Kaydet
+		  </button>
+
+
+		 </div>
+		</div>
+	   </div>
+	  </div>
+	</div>
+
+		}
+
+ </form>
+
+</body>
+
+}
+
+
+
+
+
+
+
+<!-- HASTA DÜZENLEME ALANİ -->
+@if (hastaAramaModel.İslemTur == 4)
+{
+	@* <script style=""  type="text/javascript">
+
+	window.onload = function () {
+	alert("Hasta Bulunamadi Hasta Kayit İşlemine Yönlendiriliyorsunuz...");
+	};
+
+
+
+	</script>
+*@
+
+	@if (ViewBag.Message is not null)
+	{
+
+		<div id="alertMessage" class="alert alert-danger">
+			<a href="#" class="close" aria-label="close" onclick="closeAlert(event)">&times;</a>
+
+		</div>
+		<div id="alertMessage" class="alert alert-success">
+			<a href="#" class="close" aria-label="close">&times;</a>
+
+			<strong></strong> @ViewBag.Message
+		</div>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				var alertMessage = document.getElementById('alertMessage');
+				if (alertMessage) {
+					setTimeout(function () {
+						alertMessage.style.display = 'none';
+					}, 6000);
+				}
+			});
+
+			function closeAlert(event) {
+				event.preventDefault();
+				var alertMessage = document.getElementById('alertMessage');
+				if (alertMessage) {
+					alertMessage.style.display = 'none';
+				}
+			}
+		</script>
+	}
+
+
+	<body>
+		<form id="login" method="post" class="">
+
+			@using (Html.BeginForm("Index", "HastaKayitKabul", FormMethod.Post))
+			{
+
+
+
+				<div class="card mb-4">
+					<h5 class="card-header">Hasta Kayıt</h5>
+					<div class="card-body">
+						<div class="mb-3 row">
+							
+							<div class="mb-3 row">
+								<label for="html5-url-input" class="col-md-2 col-form-label" style="display: none" id="ıd">Passaport No</label>
+								<div class="col-md-10">
+									<input class="form-control" style="display: none" type="text" name="ıd" id="ıd" value="@hastaKayitBilgisi.ıd" />
+								</div>
+							</div>
+
+
+
+							@if(hastaKayitBilgisi.HastaKayitTip_id is not null)
+							{
+								<div class="mb-3 row">
+									<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Hasta Kayıt Tür</label>
+									<div class="col-md-10">
+
+										<select id="HastaKayitTip_id" name="HastaKayitTip_id" class="form-select" required="required" onchange="showAdditionalLabel1()">
+											<option value="" disabled selected>Seçiniz..</option>
+											@foreach (var item in @hastaAramaModel.HastaKayitTur)
+											{
+												if(hastaKayitBilgisi.HastaKayitTip_id==item.id)
+												{
+													<option value="@item.id" selected>@item.Adi</option>
+												}
+												else
+												{
+													<option value="@item.id">@item.Adi</option>
+												}
+												
+											}
+										</select>
+
+
+									</div>
+								</div>
+
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Hasta Kayıt Tür</label>
+									<div class="col-md-10">
+										<select id="HastaKayitTip_id" name="HastaKayitTip_id" class="form-select" required="required" onchange="showAdditionalLabel1()">
+											<option value="" disabled selected>Seçiniz..</option>
+											@foreach (var item in @hastaAramaModel.HastaKayitTur)
+											{
+												<option value="@item.id">@item.Adi</option>
+											}
+										</select>
+
+
+									</div>
+								</div>
+
+							}
+
+							<script>
+								function showAdditionalLabel1() {
+									// var ile Başlıyan komutlar inputların idlerini alıp bir degişkene atıyor
+									var selectElement = document.getElementById("HastaKayitTip_id");
+									var selectedValue = selectElement.value;
+									console.log("seçilen değer: " + selectedValue);
+									var additionalLabelPasaportNo = document.getElementById("additionalLabelPasaportNo");
+									var additionlInputPasaportNo = document.getElementById("additionalİnputPasaportNo");
+									var additionalLabelAnneTC = document.getElementById("additionalLabelAnneTC");
+									var additionlInputAnneTC = document.getElementById("additionlInputAnneTC");
+									var additionalLabelBabaTC = document.getElementById("additionalLabelBabaTC");
+									var additionlInputBabaTC = document.getElementById("additionlInputBabaTC");
+									var additionalLabelBeyanTarih = document.getElementById("additionalLabelBeyanTarih");
+									var additionlInputBeyanTarih = document.getElementById("additionlInputBeyanTarih");
+									var additionalInputTC = document.getElementById("additionalInputTC");
+									var Ad = document.getElementById("Ad");
+									var Soyad = document.getElementById("Soyad");
+									var DogumTarih = document.getElementById("DogumTarih");
+									var DogumYeri = document.getElementById("DogumYeri");
+									var AnneAdi = document.getElementById("AnneAdi");
+									var BabaAdi = document.getElementById("BabaAdi");
+									var Adres = document.getElementById("Adres");
+									var additionalLabelKimlikSizHastaBilgisi = document.getElementById("additionalLabelKimlikSizHastaBilgisi");
+									var additionlInputKimlikSizHastaBilgisi = document.getElementById("additionlInputKimlikSizHastaBilgisi");
+									
+									// Seçilen değeri kontrol et (örneğin, "Diğer" seçildiğinde)
+
+									if (selectElement.value === "5" || selectElement.value === "4") {
+										additionalInputTC.removeAttribute("required");
+										DogumTarih.removeAttribute("required");
+										DogumYeri.removeAttribute("required");
+										AnneAdi.removeAttribute("required");
+										BabaAdi.removeAttribute("required");
+										Adres.removeAttribute("required");
+										additionlInputKimlikSizHastaBilgisi.setAttribute("required", "required");
+										additionalLabelKimlikSizHastaBilgisi.style.display = "block"; // Ek bilgi etiketini görünür yap
+										additionlInputKimlikSizHastaBilgisi.style.display = "block";
+									}
+									else {
+										additionlInputKimlikSizHastaBilgisi.removeAttribute("required");
+										additionalInputTC.setAttribute("required", "required");
+										DogumTarih.setAttribute("required", "required");
+										DogumYeri.setAttribute("required", "required");
+										AnneAdi.setAttribute("required", "required");
+										BabaAdi.setAttribute("required", "required");
+										Adres.setAttribute("required", "required");
+										additionalLabelKimlikSizHastaBilgisi.style.display = "none"; // Ek bilgi etiketini görünür yap
+										additionlInputKimlikSizHastaBilgisi.style.display = "none";
+									}
+
+									if (selectElement.value === "1") {
+										// additionalInputTC.insertAdjacentElement("required");
+										// additionalInputTC.insertAdjacentHTML(required"required");
+										Adres.setAttribute("required", "required");
+										DogumYeri.setAttribute("required", "required");
+										additionalInputTC.setAttribute("required", "required");
+									}
+
+									if (selectElement.value === "3") {
+										DogumYeri.removeAttribute("required");
+										Adres.removeAttribute("required");
+										additionalInputTC.removeAttribute("required");
+										additionalLabelPasaportNo.style.display = "block"; // Ek bilgi etiketini görünür yap
+										additionlInputPasaportNo.style.display = "block";
+									} else {
+										additionalLabelPasaportNo.style.display = "none"; // Diğer durumda ek bilgi etiketini gizle
+										additionlInputPasaportNo.style.display = "none";
+									}
+									if (selectElement.value === "2") {
+										additionalInputTC.removeAttribute("required");
+										additionalLabelAnneTC.style.display = "block"; // Ek bilgi etiketini görünür yap
+										additionlInputAnneTC.style.display = "block";
+										additionalLabelBabaTC.style.display = "block";
+										additionlInputBabaTC.style.display = "block";
+										additionalLabelBeyanTarih.style.display = "block";
+										additionlInputBeyanTarih.style.display = "block";
+									} else {
+										additionalLabelAnneTC.style.display = "none"; // Diğer durumda ek bilgi etiketini gizle
+										additionlInputAnneTC.style.display = "none";
+										additionalLabelBabaTC.style.display = "none";
+										additionlInputBabaTC.style.display = "none";
+										additionalLabelBeyanTarih.style.display = "none";
+										additionlInputBeyanTarih.style.display = "none";
+									}
+								}
+
+							</script>
+						
+							@if(hastaKayitBilgisi.TC !=0)
+							{
+								<div class="mb-3 row">
+
+									<label id="additionalLabelTC" for="html5-text-input" class="col-md-2 col-form-label">Kimlik No</label>
+									<div class="col-md-10">
+										<input id="additionalInputTC" class="form-control" type="number" value="@hastaKayitBilgisi.TC" maxlength="1" name="TC" required="required" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+
+									<label id="additionalLabelTC" for="html5-text-input" class="col-md-2 col-form-label">Kimlik No</label>
+									<div class="col-md-10">
+										<input id="additionalInputTC" class="form-control" type="number" value=""   name="TC" required="required" />
+									</div>
+								</div>
+							}
+
+
+
+								@if(hastaKayitBilgisi.Ad is not null)
+							{
+								<div class="mb-3 row">
+									<label for="html5-email-input" class="col-md-2 col-form-label">Adı</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="Ad" id="Ad" value="@hastaKayitBilgisi.Ad" required="required" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label for="html5-email-input" class="col-md-2 col-form-label">Adı</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="Ad" id="Ad" required="required" />
+									</div>
+								</div>
+							}
+							@if(hastaKayitBilgisi.Soyad is not null)
+									{			
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Soyadı</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="Soyad" id="Soyad" value="@hastaKayitBilgisi.Soyad" required="required" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Soyadı</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="Soyad" id="Soyad" required="required" />
+									</div>
+								</div>
+							}
+
+							@if(hastaKayitBilgisi.DogumTarih is not null)
+							{
+								<div class="mb-3 row">
+									<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Doğum Tarihi</label>
+									<div class="col-md-10">
+										<input class="form-control"
+											   type="date"
+											   id="DogumTarih"
+											   
+											   name="DogumTarih" value="@hastaKayitBilgisi.DogumTarih" required="required" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Doğum Tarihi</label>
+									<div class="col-md-10">
+										<input class="form-control"
+											   type="date"
+											   id="DogumTarih"
+											   name="DogumTarih" required="required" />
+									</div>
+								</div>
+							}
+
+							@if(hastaKayitBilgisi.Beyan_DogumTarih is not null)
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelBeyanTarih" for="html5-datetime-local-input" class="col-md-2 col-form-label" style="display: none;">Beyan Doğum Tarihi</label>
+									<div class="col-md-10">
+										<input id="additionlInputBeyanTarih" style="display: none;" class="form-control" value="@hastaKayitBilgisi.Beyan_DogumTarih"
+											   type="date"
+											   name="Beyan_DogumTarih" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelBeyanTarih" for="html5-datetime-local-input" class="col-md-2 col-form-label" style="display: none;">Beyan Doğum Tarihi</label>
+									<div class="col-md-10">
+										<input id="additionlInputBeyanTarih" style="display: none;" class="form-control"
+											   type="date"
+											   name="Beyan_DogumTarih" />
+									</div>
+								</div>
+							}
+
+							<div class="mb-3 row">
+
+								<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Uyruk</label>
+								<div class="col-md-10">
+									<select id="Uyruk_id" name="Uyruk_id" class="form-select">
+										<option value="" disabled selected>Seçiniz..</option>
+										@foreach (var item in hastaAramaModel.UyrukTur)
+										{
+											if (item.ID == hastaKayitBilgisi.Uyruk_id)
+											{
+												<option value="@item.ID" selected>@item.Adi</option>
+											}
+											else
+											{
+												<option value="@item.ID">@item.Adi</option>
+											}
+										}
+
+
+									</select>
+								</div>
+							</div>
+
+
+							@if(hastaKayitBilgisi.DogumYeri is not null)
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Doğum Yeri</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="DogumYeri" id="DogumYeri" value="@hastaKayitBilgisi.DogumYeri" required="required" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Doğum Yeri</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="DogumYeri" id="DogumYeri" required="required" />
+									</div>
+								</div>
+							}
+
+						@if(hastaKayitBilgisi.Cinsiyet is not null)
+							{
+								<div class="mb-3 row">
+
+									<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Cinsiyet</label>
+									<div class="col-md-10">
+										<select name="Cinsiyet" id="Cinsiyet"  class="form-select" required>
+											<option  disabled selected>Seçiniz..</option>
+
+											@if (hastaKayitBilgisi.Cinsiyet == "ERKEK")
+
+											{
+												<option value="ERKEK" selected>ERKEK</option>
+											 
+											}
+											else
+											{
+												<option value="ERKEK">ERKEK</option>
+												<option value="KADIN">KADIN</option>
+												<option value="BELİRTMEK İSTEMİYOR">BELİRTMEK İSTEMİYOR</option>
+											}
+										
+
+
+										</select>
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+
+									<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Cinsiyet</label>
+									<div class="col-md-10">
+										<select name="Cinsiyet" id="Cinsiyet" class="form-select" required>
+											<option value="" disabled selected>Seçiniz..</option>
+
+											<option value="ERKEK">ERKEK</option>
+											<option value="KADIN">KADIN</option>
+											<option value="BELİRTMEK İSTEMİYOR">BELİRTMEK İSTEMİYOR</option>
+
+
+										</select>
+									</div>
+								</div>
+							}
+
+
+							@if(hastaKayitBilgisi.AnneAdi is not null)
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Anne Adı</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="AnneAdi" id="AnneAdi" value="@hastaKayitBilgisi.AnneAdi" required="required" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Anne Adı</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="AnneAdi" id="AnneAdi" required="required" />
+									</div>
+								</div>
+							}
+							}
+
+						
+							@if(hastaKayitBilgisi.BabaAdi is not null)
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Baba Adı</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="BabaAdi" id="BabaAdi" value="@hastaKayitBilgisi.BabaAdi" required="required" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Baba Adı</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="BabaAdi" id="BabaAdi" required="required" />
+									</div>
+								</div>
+							}
+
+				
+
+							@if(hastaKayitBilgisi.Adres is not null)
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Adres</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="Adres" id="Adres" value="@hastaKayitBilgisi.Adres" required="required" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label">Adres</label>
+									<div class="col-md-10">
+										<input class="form-control" type="text" name="Adres" id="Adres" required="required" />
+									</div>
+								</div>
+							}
+
+						
+							@if(hastaKayitBilgisi.Telefon is not null)
+							{
+								<div class="mb-3 row">
+									<label id="Telefon" for="html5-url-input" class="col-md-2 col-form-label">Telefon</label>
+									<div class="col-md-10">
+										<input id="Telefon" class="form-control" type="number" name="Telefon" value="@hastaKayitBilgisi.Telefon" />
+									</div>
+								</div>
+
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label id="Telefon" for="html5-url-input" class="col-md-2 col-form-label">Telefon</label>
+									<div class="col-md-10">
+										<input id="Telefon" class="form-control" type="number" name="Telefon" />
+									</div>
+								</div>
+
+							}
+
+							@if(hastaKayitBilgisi.Yupass is not null)
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelYupass" for="html5-url-input" class="col-md-2 col-form-label">Yupass</label>
+									<div class="col-md-10">
+										<input id="additionalInputYupass" class="form-control" type="text" name="Yupass" value="@hastaKayitBilgisi.Yupass" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelYupass" for="html5-url-input" class="col-md-2 col-form-label">Yupass</label>
+									<div class="col-md-10">
+										<input id="additionalInputYupass" class="form-control" type="text" name="Yupass" />
+									</div>
+								</div>
+							}
+					
+
+							@if(hastaKayitBilgisi.PasaportNo is not null)
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label" style="display: none" id="additionalLabelPasaportNo">Passaport No</label>
+									<div class="col-md-10">
+										<input class="form-control" style="display: none" type="text" name="PasaportNo" id="additionalİnputPasaportNo" value="@hastaKayitBilgisi.PasaportNo" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label for="html5-url-input" class="col-md-2 col-form-label" style="display: none" id="additionalLabelPasaportNo">Passaport No</label>
+									<div class="col-md-10">
+										<input class="form-control" style="display: none" type="text" name="PasaportNo" id="additionalİnputPasaportNo" />
+									</div>
+								</div>
+							}
+
+						
+
+							@if(hastaKayitBilgisi.Kimliksiz_HastaBilgisi is not null)
+
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelKimlikSizHastaBilgisi" for="html5-url-input" style="display: none" class="col-md-2 col-form-label">Kimliksiz Hasta Bilgisi</label>
+									<div class="col-md-10">
+										<input id="additionlInputKimlikSizHastaBilgisi" class="form-control" style="display: none" type="text" name="Kimliksiz_HastaBilgisi" value="@hastaKayitBilgisi.Kimliksiz_HastaBilgisi" required="required" />
+									</div>
+								</div>
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelKimlikSizHastaBilgisi" for="html5-url-input" style="display: none" class="col-md-2 col-form-label">Kimliksiz Hasta Bilgisi</label>
+									<div class="col-md-10">
+										<input id="additionlInputKimlikSizHastaBilgisi" class="form-control" style="display: none" type="text" name="Kimliksiz_HastaBilgisi" required="required" />
+									</div>
+								</div>
+							}
+
+					
+
+							@if(hastaKayitBilgisi.AnneTc is not null)
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelAnneTC" for="html5-url-input" style="display: none" class="col-md-2 col-form-label">Anne Tc</label>
+									<div class="col-md-10">
+										<input id="additionlInputAnneTC" class="form-control" style="display: none" type="number" name="AnneTc" value="@hastaKayitBilgisi.AnneTc" />
+									</div>
+								</div>
+
+
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelAnneTC" for="html5-url-input" style="display: none" class="col-md-2 col-form-label">Anne Tc</label>
+									<div class="col-md-10">
+										<input id="additionlInputAnneTC" class="form-control" style="display: none" type="number" name="AnneTc" />
+									</div>
+								</div>
+
+							}
+						
+
+							@if(hastaKayitBilgisi.BabaTc is not null)
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelBabaTC" for="html5-url-input" style="display: none" class="col-md-2 col-form-label">Baba Tc</label>
+									<div class="col-md-10">
+										<input id="additionlInputBabaTC" class="form-control" style="display: none" type="number" name="BabaTc" value="@hastaKayitBilgisi.BabaTc" />
+									</div>
+								</div>
+
+							}
+							else
+							{
+								<div class="mb-3 row">
+									<label id="additionalLabelBabaTC" for="html5-url-input" style="display: none" class="col-md-2 col-form-label">Baba Tc</label>
+									<div class="col-md-10">
+										<input id="additionlInputBabaTC" class="form-control" style="display: none" type="number" name="BabaTc" />
+									</div>
+								</div>
+							}
+
+
+
+							
+
+
+							<div class="col-md-10">
+								<div class="d-grid gap-2 col-lg-7 mx-auto">
+
+
+
+									<script>
+										  {
+											// var ile Başlıyan komutlar inputların idlerini alıp bir degişkene atıyor
+											var selectElement = document.getElementById("HastaKayitTip_id");
+											var selectedValue = selectElement.value;
+											console.log("seçilen değer: " + selectedValue);
+											var additionalLabelPasaportNo = document.getElementById("additionalLabelPasaportNo");
+											var additionlInputPasaportNo = document.getElementById("additionalİnputPasaportNo");
+											var additionalLabelAnneTC = document.getElementById("additionalLabelAnneTC");
+											var additionlInputAnneTC = document.getElementById("additionlInputAnneTC");
+											var additionalLabelBabaTC = document.getElementById("additionalLabelBabaTC");
+											var additionlInputBabaTC = document.getElementById("additionlInputBabaTC");
+											var additionalLabelBeyanTarih = document.getElementById("additionalLabelBeyanTarih");
+											var additionlInputBeyanTarih = document.getElementById("additionlInputBeyanTarih");
+											var additionalInputTC = document.getElementById("additionalInputTC");
+											var Ad = document.getElementById("Ad");
+											var Soyad = document.getElementById("Soyad");
+											var DogumTarih = document.getElementById("DogumTarih");
+											var DogumYeri = document.getElementById("DogumYeri");
+											var AnneAdi = document.getElementById("AnneAdi");
+											var BabaAdi = document.getElementById("BabaAdi");
+											var Adres = document.getElementById("Adres");
+											var additionalLabelKimlikSizHastaBilgisi = document.getElementById("additionalLabelKimlikSizHastaBilgisi");
+											var additionlInputKimlikSizHastaBilgisi = document.getElementById("additionlInputKimlikSizHastaBilgisi");
+
+											// Seçilen değeri kontrol et (örneğin, "Diğer" seçildiğinde)
+
+
+											if (selectElement.value === "1") {
+												// additionalInputTC.insertAdjacentElement("required");
+												// additionalInputTC.insertAdjacentHTML(required"required");
+												Adres.setAttribute("required", "required");
+												DogumYeri.setAttribute("required", "required");
+												additionalInputTC.setAttribute("required", "required");
+											}
+											else {
+												additionalInputTC.removeAttribute("required");
+											}
+
+
+											if (selectElement.value === "2") {
+												additionalInputTC.removeAttribute("required");
+												additionalLabelAnneTC.style.display = "block"; // Ek bilgi etiketini görünür yap
+												additionlInputAnneTC.style.display = "block";
+												additionalLabelBabaTC.style.display = "block";
+												additionlInputBabaTC.style.display = "block";
+												additionalLabelBeyanTarih.style.display = "block";
+												additionlInputBeyanTarih.style.display = "block";
+											} else {
+												additionalLabelAnneTC.style.display = "none"; // Diğer durumda ek bilgi etiketini gizle
+												additionlInputAnneTC.style.display = "none";
+												additionalLabelBabaTC.style.display = "none";
+												additionlInputBabaTC.style.display = "none";
+												additionalLabelBeyanTarih.style.display = "none";
+												additionlInputBeyanTarih.style.display = "none";
+											}
+											if (selectElement.value === "3") {
+												DogumYeri.removeAttribute("required");
+												Adres.removeAttribute("required");
+												additionalInputTC.removeAttribute("required");
+												additionalLabelPasaportNo.style.display = "block"; // Ek bilgi etiketini görünür yap
+												additionlInputPasaportNo.style.display = "block";
+											} else {
+												additionalLabelPasaportNo.style.display = "none"; // Diğer durumda ek bilgi etiketini gizle
+												additionlInputPasaportNo.style.display = "none";
+											}
+
+											if (selectElement.value === "5" || selectElement.value === "4") {
+												additionalInputTC.removeAttribute("required");
+												DogumTarih.removeAttribute("required");
+												DogumYeri.removeAttribute("required");
+												AnneAdi.removeAttribute("required");
+												BabaAdi.removeAttribute("required");
+												Adres.removeAttribute("required");
+												additionlInputKimlikSizHastaBilgisi.setAttribute("required", "required");
+												additionalLabelKimlikSizHastaBilgisi.style.display = "block"; // Ek bilgi etiketini görünür yap
+												additionlInputKimlikSizHastaBilgisi.style.display = "block";
+											}
+											else {
+												additionlInputKimlikSizHastaBilgisi.removeAttribute("required");
+												additionalInputTC.setAttribute("required", "required");
+												DogumTarih.setAttribute("required", "required");
+												DogumYeri.setAttribute("required", "required");
+												AnneAdi.setAttribute("required", "required");
+												BabaAdi.setAttribute("required", "required");
+												Adres.setAttribute("required", "required");
+												additionalLabelKimlikSizHastaBilgisi.style.display = "none"; // Ek bilgi etiketini görünür yap
+												additionlInputKimlikSizHastaBilgisi.style.display = "none";
+
+											}
+										}
+
+									</script>
+
+
+									<button class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="HastaKayitKabul" asp-action="HastaUpdate">
+	
+										Hastayı Kaydet
+									</button>
+
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			}
+		
+		</form>
+	</body>
+
+}
+ <!-- HASTA LİSTELEME ALANİ  -->
+ 
+ 
+			
+
+					@if (hastaAramaModel.Hastalistesi is not null && hastaAramaModel.İslemTur != 1)
+{
+
+
+
+	<hr class="my-5" />
+
+	<!-- Bootstrap Table with Header - Dark -->
+	<div class="card">
+		<h5 class="card-header">Hasta Listesi</h5>
+		<div class="table-responsive text-nowrap">
+			<table  name="id" class="table">
+
+				<thead  class="table-dark">
+
+
+					<tr>
+						<th name="id">Dosya No</th>
+						<th>Kimlik No</th>
+						<th>Adı</th>
+						<th>Soyadı</th>
+						<th>Doğum Tarihi</th>
+						<th>Anne Adı</th>
+						<th>Baba Adı</th>
+						<th>Telefon Numarası</th>
+						<th>İşlemler</th>
+
+
+
+
+					</tr>
+				</thead>
+				@using (Html.BeginForm("HastaDuzenle", "HastaKayitKabul", hastaAramaModel, FormMethod.Post))
+				{
+
+					@foreach (var item in hastaAramaModel.Hastalistesi)
+				{
+
+					<tbody  name="id" class="table-border-bottom-0">
+							<tr name="id">
+
+							<td ><strong>@item.ıd</strong></td>
+							<td name="TC">@item.TC</td>
+							<td name="Adi" > @item.Ad </td>
+							<td>@item.Soyad</td>
+							<td>@item.DogumTarih</td>
+							<td>@item.AnneAdi</td>
+							<td>@item.BabaAdi</td>
+							<td>@item.Telefon</td>
+
+
+							<td>
+
+								<div class="dropdown">
+									<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+										<i class="bx bx-dots-vertical-rounded"></i>
+									</button>
+									<div class="dropdown-menu">
+											<button class="dropdown-item" asp-controller="HastaKayitKabul" asp-action="HastaDuzenle"    name="Dosyano" value="@item.ıd" type="submit"><i class="bx bx-edit-alt me-1"></i> Düzenle</button>
+										<button class="dropdown-item" asp-controller="HastaKayitKabul" asp-action="HastaDuzenle" type="button"><i class="bx bx-trash me-1"></i> Sil</button>
+									</div>
+								</div>
+
+							</td>
+
+						</tr>
+					</tbody>
+
+				}
+				}
+			</table>
+		</div>
+	</div>
+ 
+}

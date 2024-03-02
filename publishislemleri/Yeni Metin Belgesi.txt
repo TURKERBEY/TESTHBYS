@@ -1,0 +1,9 @@
+# Git'ten şubeyi silmek
+if git rev-parse --verify master &> /dev/null; then
+    git push origin --delete master || { echo "Master şubesi silinemedi" >> "$log_file"; exit; }
+else
+    echo "Şube 'master' zaten mevcut değil."
+fi
+
+
+git branch master || { echo "Master şubesi oluşturulamadı" >> "$log_file"; exit; }

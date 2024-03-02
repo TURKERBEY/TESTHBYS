@@ -1,0 +1,59 @@
+﻿@using EntityLayer.Models
+@{
+    var versiyonnotlari = (versiyonnotlariModel)ViewData["versiyon"];
+       Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HBYS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Versiyon numaralarını listeleyen bir düğme oluştur -->
+    @{
+        var distinctVersiyonlar = versiyonnotlari.VersiyonNotlarilistesi.Select(x => x.versiyon).Distinct().ToList();
+    }
+
+    <div>
+        <h4>Versiyon Numaraları</h4>
+        <ul>
+            @foreach (var versiyon in distinctVersiyonlar)
+            {
+                <li>
+                    
+                    <button onclick="listNotes('@versiyon')">Versiyon: @versiyon</button>
+                </li>
+            }
+        </ul>
+    </div>
+    
+    <div id="notesSection">
+        <!-- Burası, JavaScript ile doldurulacak -->
+    </div>
+
+    <script>
+        // JavaScript kullanarak notları listeleme işlevi
+        function listNotes(version) {
+            // Versiyon numarasına ait notları almak için AJAX isteği yap
+            $.ajax({
+                url: '/Versiyon/GetNotes', // Notları alma işlemini gerçekleştirecek Controller metodunun URL'si
+                type: 'GET',
+                data: { version: version }, // Versiyon numarasını isteğe ekle
+                success: function (data) {
+                    // Başarılı olduğunda, notları ekrana ekle
+                    $('#notesSection').html(data);
+                },
+                error: function () {
+                    // Hata durumunda kullanıcıya uygun bir mesaj göster
+                    $('#notesSection').html('<p>Notlar yüklenirken bir hata oluştu.</p>');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

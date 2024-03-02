@@ -1,0 +1,8 @@
+commitnot : en son çektigim tarihten o güne kadar olan commit notlarini gitten çeker
+
+proje clon : c de bulunan versiyonlar isimli diske versiyon numarasi ile yedek alır ve gitteki versiyon deposuna yedegi aktarır gitte son yedek tutulur 
+
+verisyonnotlari: versiyon notlarını versiyon numarası adı altındaki notları bir klasörde toplar klasör ana klasörde versiyon notlari
+
+
+Publish işlemi sırasında çalışır bu işlemler

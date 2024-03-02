@@ -1,0 +1,140 @@
+﻿@using WEB.Models
+@using EntityLayer.Concrete;
+@{
+
+
+	Layout = null;
+
+	TanimlamaİslemleriModel _TanimlamaModel;
+	Kullanicilar kullanici = new();
+	_TanimlamaModel = (TanimlamaİslemleriModel)ViewData["Tanimlamaİslemleri"];
+
+}
+
+
+<link rel="stylesheet" href="~/app-assets/vendors/fonts/boxicons.css" />
+
+
+
+
+
+<hr class="my-5" />
+
+<!-- Bootstrap Table with Header - Dark -->
+<div class="card">
+	<h5 class="card-header">Kullanici Listesi</h5>
+	<div class="table-responsive text-nowrap">
+		<table name="id" class="table">
+
+			<thead class="table-dark">
+
+
+				<tr>
+					<th name="id">Kullanici Kodu</th>
+
+					<th>Adı</th>
+					<th>Soyadı</th>
+					<th>Kullanici Adi</th>
+					<th>Baglı Personel</th>
+					<th>Aktif</th>
+					<th>Yetki Grup </th>
+					<th>E-Mail</th>
+					<th>İşlemler</th>
+
+
+
+
+				</tr>
+			</thead>
+			@using (Html.BeginForm("Tanimlamaİslemleri", "KullaniciTanimlama", FormMethod.Post))
+			{
+				@if (_TanimlamaModel.KullaniciListesi.Count == 0)
+				{
+
+					<button id="KullaniciKaydet" class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="Tanimlamaİslemleri" asp-action="KullaniciTanimlama" type="submit" s> Yenile	</button>
+				}
+
+				if (_TanimlamaModel is not null)
+				{
+					if (_TanimlamaModel.KullaniciListesi is not null)
+					{
+						@foreach (var item in _TanimlamaModel.KullaniciListesi)
+						{
+
+							<tbody name="id" class="table-border-bottom-0">
+								<tr name="id">
+
+									<td><strong>@item.id</strong></td>
+									<td name="Ad">@item.Ad</td>
+									<td name="soyad"> @item.soyad </td>
+									<td>@item.KullaniciAd</td>
+									@if (item.Personel_İd is not null)
+									{
+										<td>@_TanimlamaModel.Personels.Find(x => x.ID == item.Personel_İd).KADRO_UNVAN_KODU @_TanimlamaModel.Personels.Find(x => x.ID == item.Personel_İd).AD @_TanimlamaModel.Personels.Find(x => x.ID == item.Personel_İd).SOYADI</td>
+									}
+									else
+									{
+										<td>
+											Tanimlı personel bulunamadı
+										</td>
+									}
+									@if (item.Aktif == true)
+									{
+										<td>
+											Aktif
+										</td>
+									}
+									else
+									{
+										<td>
+											Pasif
+										</td>
+									}
+
+									<td>@_TanimlamaModel.YetkiGrupTurs.Find(X => X.id == item.Yetki_Grup_ıd).Adi</td>
+									<td>@item.Email</td>
+
+
+									<td>
+
+										<div class="dropdown" id="scrollingCard">
+											<button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+												<i class="bx bx-dots-vertical-rounded"></i>
+											</button>
+											<div class="dropdown-menu">
+												<button class="dropdown-item" asp-controller="Tanimlamaİslemleri" asp-action="KullaniciDuzenle" name="Tanimlama_kullanici_ID" value="@item.id" type="submit"><i class="bx bx-edit-alt me-1"></i> Düzenle</button>
+												<button class="dropdown-item" asp-controller="Tanimlamaİslemleri" asp-action="HastaDuzenle" type="button"><i class="bx bx-trash me-1"></i> Sil</button>
+											</div>
+										</div>
+
+									</td>
+
+								</tr>
+							</tbody>
+
+						}
+
+					}
+
+
+
+				}
+
+
+
+			}
+		</table>
+	</div>
+</div>
+
+
+
+<script>
+	// Sayfa yüklendiğinde çalışacak olan JavaScript kodu
+	window.onload = function () {
+		// Sayfa yüklendiğinde card elementini genişliği kadar scroll eder
+		var card = document.getElementById('scrollingCard');
+		card.style.height = card.scrollWidth + 'px';
+		
+	};
+</script>

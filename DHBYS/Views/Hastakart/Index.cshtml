@@ -1,0 +1,113 @@
+ ﻿@using WEB.Models
+@{
+	<title>@ViewData["Title"]HBYS</title>
+	Layout = "_Layout";
+	HastakartModel _hastakartModel;
+	_hastakartModel = (HastakartModel)ViewData["HastakartModel"];
+}
+
+
+<head>
+    <script src="~/app-assets/vendors/js/jquery/jquery.min.js"></script>
+    <script src="~/app-assets/vendors/js/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="~/app-assets/vendors/fonts/boxicons.css" />
+    <link rel="stylesheet" href="~/app-assets/vendors/css/core.css" class="template-customizer-core-css" />   @* alanların büyüdüğü kısım (label ve head'ler') *@
+
+
+    <script src="~/app-assets/vendors/js/helpers.js"></script>
+</head>
+
+
+
+<div class="card mb-5" style="width:550px; left:450px;">
+	   <h5 class="card-header">Hasta Kart Açma</h5>
+	<div class="card-body">
+		<div class="mb-2 row">
+		 <label for="html5-text-input" class="col-md-2 col-form-label">Kimlik No</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="number" value="" maxlength="11" name="Tckimlik" id="Tckimlik" />
+		 </div>
+		</div>
+		<div class="mb-2 row">
+		 <label for="html5-search-input" class="col-md-2 col-form-label">Dosya No</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="number" id="Dosyano" name="Dosyano" />
+		 </div>
+		</div>
+		<div class="mb-2 row">
+		 <label for="html5-email-input" class="col-md-2 col-form-label">Adı</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="text" name="Adi" id="Adi" />
+		 </div>
+		</div>
+		<div class="mb-3 row">
+		 <label for="html5-url-input" class="col-md-2 col-form-label">Soyadı</label>
+		 <div class="col-md-10">
+		  <input class="form-control" type="text" name="Soyadi" id="Soyadi" />
+		 </div>
+		</div>
+
+	<div class="mb-3 row">
+			<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Tedavi Türü</label>
+			<div class="col-md-10">
+				<select id="tedavituru_id" name="tedavituru_id" class="form-select">
+					<option value="" disabled selected>Seçiniz..</option>
+						@foreach (var item in _hastakartModel.TedaviTur)
+					{
+						if (item.TedaviTurID == 114)
+						{
+							<option value="@item.TedaviTurID" selected>@item.Adi</option>
+						}
+						else
+						{
+							<option value="@item.TedaviTurID">@item.Adi</option>
+						}
+					}
+				</select>
+			</div>
+		</div>
+
+
+	<div class="mb-3 row">
+		<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Tedavi Birimi</label>
+		<div class="col-md-10">
+				<select id="tedavi_birim" name="tedavi_birim" class="form-select">
+					<option value="" disabled selected>Seçiniz..</option>
+					<option value=""  selected>Acil Polk.</option>
+				</select>
+	</div>
+	</div>
+
+
+	<div class="mb-3 row">
+		<label for="html5-datetime-local-input" class="col-md-2 col-form-label">Doktor</label>
+		<div class="col-md-10">
+				<select id="tedavi_doktor" name="tedavi_doktor" class="form-select">
+					<option value="" disabled selected>Seçiniz..</option>
+					<option value="" selected>Samet TÜRKER</option>
+				</select>
+	</div>
+	</div>
+
+
+	<div class="mb-3 row">
+			<label for="html5-datetime-local-input" class="col-md-2 col-form-label">KURUM</label>
+			<div class="col-md-10">
+				<select id="hasta_kurum" name="hasta_kurum" class="form-select">
+					<option value="" disabled selected>Seçiniz..</option>
+					<option value="" selected>ÜCRETLİ</option>
+					<option value="" selected>S.G.K</option>
+				</select>
+	</div>
+	</div>
+
+	
+
+	<div class="col-md-10">
+		<div class="d-grid gap-2 col-lg-7 mx-auto">
+			<button class="btn btn-primary btn-lg waves-effect waves-float waves-light" asp-controller="HastaKayitKabul" asp-action="YeniKayit" style="left:70px;" type="submit">Kaydet</button>
+		
+	</div>
+	</div> 
+	</div>
+	</div>
